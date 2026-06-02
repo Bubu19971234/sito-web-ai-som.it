@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Social Bar — La stanza digitale della serata. Abbatti la barriera della vergogna con eleganza.">
+<title>Social Bar — AI Som</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}body{font-family:'Inter',sans-serif;background:#1C1C1C;color:#C0B0A0;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-style:none}
+:root{--dark:#1C1C1C;--dark2:#2A2A2A;--copper:#D4A85A;--copper2:#B8903E;--cream:#FAF8F4;--border:#3A3A3A;--muted:#808080;--white:#FFFFFF;--font-d:'DM Serif Display',Georgia,serif;--font-b:'Inter',sans-serif;--ease:0.25s cubic-bezier(0.25,0.46,0.45,0.94);--max:1200px}
+.container{max-width:var(--max);margin:0 auto;padding:0 40px}@media(max-width:768px){.container{padding:0 20px}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(28,28,28,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:18px 40px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font-d);font-size:1.4rem;color:#fff}.nav-logo em{font-style:italic;color:var(--copper)}
+.nav-links{display:flex;gap:32px;align-items:center}.nav-links a{font-size:0.88rem;font-weight:500;color:var(--muted);transition:var(--ease)}.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--copper);color:var(--dark)!important;padding:10px 24px;border-radius:100px;font-size:0.85rem!important;font-weight:600!important}
+@media(max-width:768px){.nav-links{display:none}nav{padding:16px 20px}}
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 40px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 100%,rgba(212,168,90,0.1) 0%,transparent 60%)}
+.hero-content{max-width:760px;margin:0 auto;text-align:center;position:relative}
+.hero-eyebrow{display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--copper);margin-bottom:24px}
+.hero h1{font-family:var(--font-d);font-size:clamp(2.8rem,7vw,5rem);font-weight:400;line-height:1.1;color:#fff;margin-bottom:28px}.hero h1 em{font-style:italic;color:var(--copper)}
+.hero-manifesto{font-size:1.1rem;color:rgba(255,255,255,0.55);line-height:1.9;margin-bottom:48px;font-style:italic}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--copper);color:var(--dark);padding:16px 36px;border-radius:100px;font-weight:600;font-size:0.95rem;transition:var(--ease)}.btn-primary:hover{background:var(--copper2);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:rgba(255,255,255,0.65);padding:16px 36px;border-radius:100px;font-weight:500;font-size:0.95rem;border:1px solid rgba(255,255,255,0.15);transition:var(--ease)}.btn-ghost:hover{background:rgba(255,255,255,0.05);color:#fff}
+section{padding:100px 40px}@media(max-width:768px){section{padding:64px 20px}}
+.section-eyebrow{display:inline-block;font-size:0.68rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--copper);margin-bottom:16px}
+.section-title{font-family:var(--font-d);font-size:clamp(2rem,4vw,3rem);font-weight:400;line-height:1.2;color:#fff;margin-bottom:20px}.section-title em{font-style:italic;color:var(--copper)}
+.section-sub{font-size:1.05rem;color:rgba(255,255,255,0.45);max-width:560px;line-height:1.75}
+.text-center{text-align:center}.text-center .section-sub{margin:0 auto}
+.regole-section{background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.regole-box{max-width:760px;margin:0 auto;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:20px;padding:48px;text-align:center}
+.regole-box p{font-size:1rem;color:rgba(255,255,255,0.6);line-height:2;margin-bottom:24px}
+.regole-box p:last-of-type{margin-bottom:0}
+.regole-box strong{color:var(--copper)}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+@media(max-width:768px){.features-grid{grid-template-columns:1fr}}
+.feature-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:20px;padding:36px;transition:var(--ease)}
+.feature-card:hover{border-color:rgba(212,168,90,0.3);transform:translateY(-4px)}
+.feature-icon{font-size:2.5rem;margin-bottom:20px}
+.feature-card h3{font-family:var(--font-d);font-size:1.2rem;font-weight:400;color:#fff;margin-bottom:12px}
+.feature-card p{font-size:0.88rem;color:rgba(255,255,255,0.45);line-height:1.75}
+.flusso-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:64px;align-items:center}
+@media(max-width:900px){.flusso-grid{grid-template-columns:1fr;gap:24px}}
+.flusso-step{text-align:center}
+.flusso-num{width:48px;height:48px;background:rgba(212,168,90,0.1);border:1px solid rgba(212,168,90,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:1.2rem;color:var(--copper);margin:0 auto 16px}
+.flusso-step h4{font-family:var(--font-d);font-size:1rem;font-weight:400;color:#fff;margin-bottom:8px}
+.flusso-step p{font-size:0.82rem;color:rgba(255,255,255,0.4);line-height:1.6}
+.flusso-arrow{text-align:center;color:var(--copper);font-size:1.5rem;opacity:0.4}
+@media(max-width:900px){.flusso-arrow{display:none}}
+.privacy-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
+@media(max-width:768px){.privacy-grid{grid-template-columns:1fr}}
+.privacy-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:16px;padding:32px}
+.privacy-card h4{font-family:var(--font-d);font-size:1.1rem;font-weight:400;color:#fff;margin-bottom:12px}
+.privacy-card p{font-size:0.88rem;color:rgba(255,255,255,0.45);line-height:1.75}
+.form-section{background:rgba(255,255,255,0.02);border-top:1px solid var(--border)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:64px;align-items:start}
+@media(max-width:768px){.form-grid{grid-template-columns:1fr;gap:40px}}
+.form-info h3{font-family:var(--font-d);font-size:1.8rem;font-weight:400;color:#fff;margin-bottom:16px}
+.form-info p{font-size:0.92rem;color:rgba(255,255,255,0.45);line-height:1.75}
+.form-info ul{margin-top:28px}
+.form-info ul li{display:flex;align-items:flex-start;gap:12px;font-size:0.88rem;color:rgba(255,255,255,0.5);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.form-info ul li::before{content:'✓';color:var(--copper);font-weight:700;flex-shrink:0}
+.contact-form{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:20px;padding:40px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;color:#fff;font-family:var(--font-b);font-size:0.95rem;outline:none;transition:var(--ease)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--copper);box-shadow:0 0 0 3px rgba(212,168,90,0.15)}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-group select option{background:var(--dark);color:#fff}
+.form-submit{width:100%;padding:16px;background:var(--copper);color:var(--dark);border:none;border-radius:100px;font-family:var(--font-b);font-size:0.95rem;font-weight:600;cursor:pointer;transition:var(--ease);margin-top:8px}
+.form-submit:hover{background:var(--copper2);transform:translateY(-2px)}
+.form-note{font-size:0.75rem;color:rgba(255,255,255,0.25);text-align:center;margin-top:14px}
+footer{background:var(--dark);border-top:1px solid var(--border);padding:64px 40px 40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;max-width:var(--max);margin:0 auto}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px}}
+.footer-brand .logo{font-family:var(--font-d);font-size:1.6rem;color:#fff}.footer-brand .logo em{font-style:italic;color:var(--copper)}
+.footer-brand p{font-size:0.85rem;color:rgba(255,255,255,0.3);line-height:1.7;margin-top:12px}
+.footer-col h4{font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--copper);margin-bottom:16px}
+.footer-col ul li{margin-bottom:10px}.footer-col ul li a{font-size:0.85rem;color:rgba(255,255,255,0.4);transition:var(--ease)}.footer-col ul li a:hover{color:rgba(255,255,255,0.8)}
+.footer-bottom{max-width:var(--max);margin:48px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:0.78rem;color:rgba(255,255,255,0.2)}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo"><a href="index.html">AI <em>Som</em></a></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="per-bar.html">Per Bar</a>
+    <a href="per-produttori.html">Per Produttori</a>
+    <a href="social-bar.html">Social Bar</a>
+    <a href="#contatto" class="nav-cta">Lista d'attesa</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-eyebrow">Novità — Social Bar</span>
+    <h1>Alcune cose<br>nascono <em>dal vivo</em></h1>
+    <p class="hero-manifesto">"Sei in un posto bellissimo, circondato da persone interessanti.<br>L'unica cosa che manca è il coraggio di dirlo."</p>
+    <div class="hero-actions">
+      <a href="#contatto" class="btn-primary">Entra in lista d'attesa →</a>
+      <a href="#come-funziona" class="btn-ghost">Come funziona</a>
+    </div>
+  </div>
+</section>
+
+<section class="regole-section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:48px">
+      <span class="section-eyebrow">Il manifesto</span>
+      <h2 class="section-title">Non è un'app di dating.<br><em>È molto di più.</em></h2>
+    </div>
+    <div class="regole-box">
+      <p>Social Bar non esiste per evitare il contatto reale.<br>Esiste per <strong>renderlo possibile</strong>.</p>
+      <p>Siamo qui perché la pressione sociale può bloccare anche le persone più sicure di sé.<br>Il timore di essere rifiutati, giudicati, o semplicemente di disturbare — è umano. È normale.</p>
+      <p>Qui puoi fare una domanda senza mettere il tuo ego in gioco.<br>Puoi scoprire qualcuno per come pensa, <strong>prima di come appare</strong>.<br>Puoi scegliere di rivelarti — o di restare un bel ricordo anonimo.</p>
+      <p>La pressione sociale non è un limite.<br>È l'energia che ti ha fatto guardare quella persona.<br><strong>Noi ti diamo solo uno strumento elegante per usarla.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section id="come-funziona">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-eyebrow">Il meccanismo</span>
+      <h2 class="section-title">5 domande.<br><em>Infinite possibilità.</em></h2>
+      <p class="section-sub">Un sistema semplice e preciso che rispetta i ritmi reali di come si conosce qualcuno.</p>
+    </div>
+    <div class="flusso-grid">
+      <div class="flusso-step">
+        <div class="flusso-num">1</div>
+        <h4>Entri in sala</h4>
+        <p>Scansioni il QR, accetti il manifesto e scegli come presentarti.</p>
+      </div>
+      <div class="flusso-arrow">→</div>
+      <div class="flusso-step">
+        <div class="flusso-num">2</div>
+        <h4>Vedi chi c'è</h4>
+        <p>Nickname, cosa sta bevendo, cosa gli piace. Niente di più.</p>
+      </div>
+      <div class="flusso-arrow">→</div>
+      <div class="flusso-step">
+        <div class="flusso-num">3</div>
+        <h4>Mandi una domanda</h4>
+        <p>Anonima. Lui risponde senza sapere chi sei. 5 scambi, poi scegli.</p>
+      </div>
+      <div class="flusso-arrow">→</div>
+      <div class="flusso-step">
+        <div class="flusso-num">4</div>
+        <h4>Ti riveli o no</h4>
+        <p>Se vale la pena continuare dal vivo — accetta la chat. Altrimenti, lascia che resti un bel ricordo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:rgba(255,255,255,0.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-eyebrow">Gli icebreaker</span>
+      <h2 class="section-title">Più modi per<br><em>rompere il ghiaccio</em></h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">❓</div>
+        <h3>Domanda anonima</h3>
+        <p>Mandi una domanda al buio. Chi la riceve risponde senza sapere chi ha chiesto. Se la risposta ti colpisce, ti riveli.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🥂</div>
+        <h3>Brindisi virtuale</h3>
+        <p>Un gesto elegante e discreto. Se l'altro ricambia si sblocca la possibilità di mandare una domanda.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🍹</div>
+        <h3>Offri da bere</h3>
+        <p>Scegli un drink dal menu e lo offri virtualmente. Se accetta, si apre la conversazione.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🍷</div>
+        <h3>Condividi cosa bevi</h3>
+        <p>Racconta cosa stai bevendo, cosa ti piace e cosa no. Gli altri reagiscono — e la conversazione parte.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚬</div>
+        <h3>Momento sigaretta</h3>
+        <p>"Esco 5 minuti" — visibile agli altri in sala. Un'opportunità reale senza pressione.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>Moderazione AI</h3>
+        <p>Claude analizza ogni messaggio. Domande offensive vengono bloccate. Alla terza violazione si viene rimossi dalla stanza.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="text-center">
+      <span class="section-eyebrow">Privacy</span>
+      <h2 class="section-title">La tua privacy.<br><em>Sempre.</em></h2>
+      <p class="section-sub">Costruito con la privacy come valore fondante, non come opzione.</p>
+    </div>
+    <div class="privacy-grid">
+      <div class="privacy-card">
+        <h4>🔒 Le chat sono private</h4>
+        <p>Solo i due partecipanti possono leggere le proprie conversazioni. Nessun altro — nemmeno il gestore del locale.</p>
+      </div>
+      <div class="privacy-card">
+        <h4>🗑️ Eliminazione automatica</h4>
+        <p>Tutti i messaggi vengono eliminati automaticamente 24 ore dopo la chiusura della sessione serale.</p>
+      </div>
+      <div class="privacy-card">
+        <h4>👤 Blocco silenzioso</h4>
+        <p>Puoi bloccare qualcuno senza che lui lo sappia. Nessun imbarazzo, nessuna situazione spiacevole in sala.</p>
+      </div>
+      <div class="privacy-card">
+        <h4>🕶️ Modalità invisibile</h4>
+        <p>Puoi essere in sala senza comparire nella lista. Usi AI Som ma non sei nel Social Bar — tua scelta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="contatto">
+  <div class="container">
+    <div class="form-grid">
+      <div class="form-info">
+        <span class="section-eyebrow">Lista d'attesa</span>
+        <h3>Posti limitati.<br>Locali selezionati.</h3>
+        <p>Social Bar è in fase di lancio selezionato. Stiamo scegliendo i primi partner con cura — locali con una visione precisa di cosa significa offrire un'esperienza vera ai propri clienti.</p>
+        <ul>
+          <li>Lancio su invito — accesso esclusivo</li>
+          <li>Onboarding dedicato e supporto diretto</li>
+          <li>Condizioni riservate ai primi partner</li>
+          <li>Accesso anticipato a tutte le nuove funzioni</li>
+        </ul>
+      </div>
+      <div class="contact-form">
+        <form action="https://formsubmit.co/info@ai-som.it" method="POST">
+          <input type="hidden" name="_subject" value="Lista attesa Social Bar">
+          <input type="hidden" name="_captcha" value="false">
+          <div class="form-group">
+            <label>Nome del locale</label>
+            <input type="text" name="locale" placeholder="Nome del tuo locale" required>
+          </div>
+          <div class="form-group">
+            <label>Città</label>
+            <input type="text" name="citta" placeholder="Milano, Roma..." required>
+          </div>
+          <div class="form-group">
+            <label>Email di contatto</label>
+            <input type="email" name="email" placeholder="info@tuolocale.it" required>
+          </div>
+          <div class="form-group">
+            <label>Tipo di locale</label>
+            <select name="tipo" required>
+              <option value="">Seleziona...</option>
+              <option>Wine Bar</option>
+              <option>Ristorante</option>
+              <option>Bar / Cocktail Bar</option>
+              <option>Enoteca con degustazione</option>
+              <option>Evento / Location</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Perché vuoi Social Bar?</label>
+            <textarea name="motivazione" placeholder="Cosa ti ha convinto di Social Bar..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Entra in lista d'attesa →</button>
+          <p class="form-note">Ti contatteremo entro 48 ore</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">AI <em>Som</em></div>
+      <p>Il sommelier digitale per chi vende vino con ambizione.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Prodotti</h4>
+      <ul>
+        <li><a href="index.html#prodotti">AI Som</a></li>
+        <li><a href="per-bar.html">Per Bar</a></li>
+        <li><a href="per-produttori.html">Per Produttori</a></li>
+        <li><a href="social-bar.html">Social Bar</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Azienda</h4>
+      <ul>
+        <li><a href="index.html#come-funziona">Come funziona</a></li>
+        <li><a href="index.html#dati">Risultati</a></li>
+        <li><a href="index.html#contatto">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contatti</h4>
+      <ul><li><a href="mailto:info@ai-som.it">info@ai-som.it</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 AI Som. Tutti i diritti riservati.</p>
+    <p>Privacy Policy — Cookie Policy</p>
+  </div>
+</footer>
+</body>
+</html>
