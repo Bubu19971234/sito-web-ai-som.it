@@ -1,272 +1,548 @@
 <!doctype html>
 <html lang="it">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>AI Som · Il Sommelier Digitale che fa marginare il tuo locale</title>
-<meta name="description" content="AI Som trasforma la tua carta dei vini in un sommelier digitale multilingua. Menù 8 lingue, comande intelligenti, report sulle marginalità. Più vendite, meno lavoro." />
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231A1614'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23B08A4A' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Som · Il Sommelier Digitale per Ristoranti ed Enoteche</title>
+<meta name="description" content="AI Som — Il sommelier digitale per ristoranti e enoteche. Aumenta le vendite di vino del 46%, supporta 8 lingue, attivo 24/7. Prova la demo gratuita.">
+<meta property="og:title" content="AI Som — Il Sommelier Digitale">
+<meta property="og:description" content="Il vino vale il 21% del tuo fatturato. AI Som ti aiuta a venderlo meglio — in 8 lingue, 24/7.">
+<meta property="og:url" content="https://ai-som.it">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F0F0F'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23D4A85A' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#161210;--card:#211B18;--line:#352C27;--copper:#C09040;--copper2:#E8C88A;--txt:#F3EEE7;--mut:#A89B8C}
+:root{--dark:#0F0F0F;--dark2:#1A1A1A;--dark3:#242424;--copper:#D4A85A;--copper2:#B8903E;--copper3:#E8C87A;--text:#C0B0A0;--text2:#8A7A6A;--text3:rgba(255,255,255,.35);--border:rgba(255,255,255,.08);--border2:rgba(212,168,90,.2)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--txt);font-family:Inter,system-ui,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.15;font-weight:700}
+body{background:var(--dark);color:#EDE6DD;font-family:Inter,system-ui,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:1.12}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
-.copper{color:var(--copper)}
-.btn{display:inline-block;background:var(--copper);color:#1A1410;font-weight:700;padding:14px 26px;border-radius:999px;transition:.2s;font-size:15px}
-.btn:hover{background:var(--copper2)}
-.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--txt)}
-.btn-ghost:hover{border-color:var(--copper)}
+.cop{color:var(--copper)}
+section{padding:90px 0}
 .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--copper);font-weight:600}
-section{padding:84px 0}
-.muted{color:var(--mut)}
+.muted{color:var(--text)}
+.tr{transition:.3s cubic-bezier(.25,.46,.45,.94)}
+.btn{display:inline-block;background:var(--copper);color:#1A1208;font-weight:700;padding:15px 30px;border-radius:999px;transition:.3s cubic-bezier(.25,.46,.45,.94);font-size:15px;border:none;cursor:pointer;font-family:Inter}
+.btn:hover{background:var(--copper3);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:1px solid var(--border);color:#EDE6DD}
+.btn-ghost:hover{border-color:var(--copper);background:rgba(212,168,90,.06)}
+.shead{text-align:center;max-width:720px;margin:0 auto 54px}
+.shead h2{font-size:clamp(28px,4.4vw,46px);margin:12px 0 14px}
+.shead p{color:var(--text);font-size:17px}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:50;background:rgba(22,18,16,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700}
-.navlinks{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--mut)}
-.navlinks a:hover{color:var(--txt)}
-@media(max-width:760px){.navlinks .hidem{display:none}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,15,15,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font-family:'DM Serif Display',serif;font-size:23px}
+.nlinks{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--text)}
+.nlinks a:hover{color:#fff}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.burger span{width:24px;height:2px;background:#EDE6DD;display:block}
+.drawer{display:none}
+@media(max-width:820px){
+  .nlinks{display:none}
+  .burger{display:flex}
+  .drawer{display:none;position:fixed;inset:66px 0 0;background:var(--dark);z-index:99;flex-direction:column;padding:30px 22px;gap:6px}
+  .drawer.open{display:flex}
+  .drawer a{padding:16px 0;border-bottom:1px solid var(--border);font-size:18px}
+}
+main{padding-top:66px}
 
 /* HERO */
-.hero{padding:90px 0 70px;text-align:center}
-.hero h1{font-size:clamp(34px,6vw,62px);max-width:900px;margin:14px auto 18px}
-.hero p{font-size:clamp(16px,2.4vw,21px);color:var(--mut);max-width:680px;margin:0 auto 30px}
+.hero{padding:64px 0 40px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,168,90,.1);border:1px solid var(--border2);color:var(--copper3);font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;margin-bottom:24px}
+.dot{width:9px;height:9px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.6)}70%{box-shadow:0 0 0 9px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+.hero h1{font-size:clamp(34px,6vw,64px);max-width:920px;margin:0 auto 20px}
+.hero .sub{font-size:clamp(16px,2.4vw,21px);color:var(--text);max-width:680px;margin:0 auto 30px}
 .hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.heroimg{margin:54px auto 0;max-width:880px}
-.heroimg img{width:100%;border-radius:18px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.proof{margin-top:26px;color:var(--text2);font-size:14px}
+.heroimg{margin:50px auto 0;max-width:900px}
+.heroimg img{width:100%;border-radius:18px;border:1px solid var(--border);box-shadow:0 40px 90px rgba(0,0,0,.6)}
 
-/* TRUST ROW */
-.props{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.prop{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
-.prop .n{font-family:'Playfair Display',serif;font-size:30px;color:var(--copper)}
-.prop .l{font-size:13px;color:var(--mut)}
-@media(max-width:760px){.props{grid-template-columns:repeat(2,1fr)}}
-
-/* SECTION HEADER */
-.shead{text-align:center;max-width:680px;margin:0 auto 50px}
-.shead h2{font-size:clamp(28px,4vw,42px);margin:10px 0 12px}
-.shead p{color:var(--mut);font-size:17px}
-
-/* FEATURES */
-.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;transition:.2s}
-.card:hover{border-color:var(--copper);transform:translateY(-3px)}
-.card .ico{font-size:30px;margin-bottom:14px}
+/* GRID HELPERS */
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:900px){.g4,.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.g4,.g3,.g2{grid-template-columns:1fr}}
+.card{background:var(--dark2);border:1px solid var(--border);border-radius:18px;padding:26px;transition:.3s cubic-bezier(.25,.46,.45,.94)}
+.card:hover{border-color:var(--border2);transform:translateY(-4px)}
+.card .ico{font-size:30px;margin-bottom:12px}
 .card h3{font-size:20px;margin-bottom:8px}
-.card p{color:var(--mut);font-size:15px}
-@media(max-width:900px){.feat{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.feat{grid-template-columns:1fr}}
+.card p{color:var(--text);font-size:15px}
 
-/* SHOWCASE */
-.show{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:64px}
-.show:nth-child(even) .txt{order:2}
-.show img{width:100%;border-radius:16px;border:1px solid var(--line)}
-.show h3{font-size:26px;margin-bottom:12px}
-.show ul{list-style:none;margin-top:14px}
-.show li{padding:6px 0 6px 26px;position:relative;color:var(--mut)}
-.show li:before{content:'✓';position:absolute;left:0;color:var(--copper);font-weight:700}
-@media(max-width:820px){.show{grid-template-columns:1fr}.show:nth-child(even) .txt{order:0}}
+/* PROBLEMA solution box */
+.solbox{margin-top:32px;background:linear-gradient(135deg,#1d1710,#141008);border:1px solid var(--border2);border-radius:20px;padding:38px}
+.solbox h3{font-size:26px;margin-bottom:18px}
+.solbox ul{list-style:none}
+.solbox li{padding:8px 0 8px 30px;position:relative;color:#EDE6DD}
+.solbox li:before{content:'→';position:absolute;left:0;color:var(--copper);font-weight:700}
 
-/* USE CASES */
-.uc{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-@media(max-width:820px){.uc{grid-template-columns:1fr}}
+/* NUMERI */
+.num{text-align:center}
+.num .big{font-family:'DM Serif Display',serif;font-size:clamp(44px,7vw,68px);color:var(--copper);line-height:1}
+.num .lab{font-size:14px;text-transform:uppercase;letter-spacing:1px;color:#EDE6DD;margin:6px 0 12px;font-weight:600}
+.num p{font-size:14px;color:var(--text)}
+.num .src{font-size:11px;color:var(--text3);margin-top:10px}
 
-/* ROI */
-.roi{background:linear-gradient(135deg,#241B14,#1A1410);border:1px solid var(--line);border-radius:24px;padding:48px;text-align:center}
-.roi h2{font-size:clamp(26px,4vw,38px);margin-bottom:14px}
-.roi .big{font-family:'Playfair Display',serif;font-size:clamp(40px,8vw,72px);color:var(--copper);line-height:1}
+/* DEMO */
+.demo{background:#0B0B0B;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.demobox{max-width:860px;margin:0 auto;background:var(--dark2);border:1px solid var(--border);border-radius:22px;padding:26px;position:relative}
+.langbtn{position:absolute;top:18px;right:18px}
+.langtrig{background:var(--dark3);border:1px solid var(--border);color:#EDE6DD;border-radius:999px;padding:8px 14px;font-size:13px;cursor:pointer;display:flex;gap:8px;align-items:center}
+.langmenu{display:none;position:absolute;top:46px;right:0;background:var(--dark3);border:1px solid var(--border);border-radius:14px;padding:6px;z-index:5;min-width:170px}
+.langmenu.open{display:block}
+.langmenu button{display:flex;gap:10px;align-items:center;width:100%;background:none;border:none;color:#EDE6DD;padding:9px 12px;border-radius:9px;cursor:pointer;font-size:14px;text-align:left}
+.langmenu button:hover{background:rgba(255,255,255,.06)}
+.dprompt{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text2);margin:14px 0 12px}
+.dinput{width:100%;background:var(--dark);border:1px solid var(--border);border-radius:12px;padding:15px 16px;color:#fff;font-size:16px;outline:none;font-family:Inter}
+.dinput:focus{border-color:var(--copper)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.chip{background:var(--dark3);border:1px solid var(--border);color:var(--text);font-size:13px;padding:7px 13px;border-radius:999px;cursor:pointer;transition:.2s}
+.chip:hover{border-color:var(--copper);color:#fff}
+.dbtn{width:100%;margin-top:6px}
+.loader{text-align:center;padding:40px 0}
+.dots{display:inline-flex;gap:6px;margin-bottom:14px}
+.dots span{width:10px;height:10px;border-radius:50%;background:var(--copper);animation:aiDot 1.2s infinite ease-in-out}
+.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
+@keyframes aiDot{0%,80%,100%{transform:scale(.5);opacity:.4}40%{transform:scale(1);opacity:1}}
+.results{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+@media(max-width:700px){.results{grid-template-columns:1fr}}
+.wcard{background:var(--dark);border:1px solid var(--border);border-radius:16px;padding:22px;opacity:0;transform:translateY(14px);animation:cardIn .45s forwards}
+@keyframes cardIn{to{opacity:1;transform:translateY(0)}}
+.wcard h3{font-size:20px}
+.wcard .wsub{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text2);margin:3px 0 12px}
+.wmatch{float:right;background:rgba(212,168,90,.14);color:var(--copper3);font-weight:700;font-size:13px;padding:3px 10px;border-radius:999px}
+.wlbl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--copper);display:block;margin:12px 0 4px}
+.wtxt{font-size:14px;color:var(--text)}
+.prof{background:var(--dark2);border-radius:10px;padding:12px;margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:6px 14px}
+.prow{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.prow .pn{font-size:11px;color:var(--text2)}
+.balls{display:flex;gap:3px}
+.ball{width:9px;height:9px;border-radius:50%;border:1px solid #3A3A3A;background:transparent;transition:.25s}
+.wtip{font-style:italic;font-size:13px;color:var(--text2);margin-top:12px}
+.wprice{font-family:'DM Serif Display',serif;color:#fff;margin-top:8px}
+.disc{text-align:center;color:var(--text3);font-size:12px;margin-top:22px;max-width:620px;margin-left:auto;margin-right:auto}
 
-/* PRICING */
-.price{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:880px;margin:0 auto}
-.plan{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:34px}
-.plan.pro{border-color:var(--copper);position:relative}
-.plan.pro:before{content:'Più scelto';position:absolute;top:-12px;left:34px;background:var(--copper);color:#1A1410;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px}
-.plan h3{font-size:24px}
-.plan .pr{font-family:'Playfair Display',serif;font-size:38px;margin:10px 0 2px}
-.plan .pr small{font-size:15px;color:var(--mut);font-family:Inter}
-.plan .act{font-size:14px;color:var(--mut);margin-bottom:18px}
-.plan ul{list-style:none;margin:18px 0 24px}
-.plan li{padding:7px 0 7px 24px;position:relative;font-size:15px}
-.plan li:before{content:'✓';position:absolute;left:0;color:var(--copper)}
-@media(max-width:760px){.price{grid-template-columns:1fr}}
+/* SHOWCASE images */
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:820px){.shots{grid-template-columns:1fr}}
+.shot img{width:100%;border-radius:14px;border:1px solid var(--border);display:block}
+.shot p{font-size:13px;color:var(--text2);margin-top:10px;text-align:center}
 
-/* CTA */
-.final{text-align:center}
-.final h2{font-size:clamp(28px,5vw,46px);margin-bottom:16px}
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+.step .n{font-family:'DM Serif Display',serif;font-size:46px;color:var(--copper2)}
+.step h3{font-size:21px;margin:6px 0 8px}
+.step p{color:var(--text);font-size:15px}
 
-footer{border-top:1px solid var(--line);padding:40px 0;color:var(--mut);font-size:14px;text-align:center}
-.imgph{background:repeating-linear-gradient(45deg,#221b17,#221b17 12px,#1d1713 12px,#1d1713 24px);border:1px dashed var(--line);border-radius:16px;min-height:280px;display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px;text-align:center;padding:20px}
+/* TABS scenari */
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+.tab{background:var(--dark2);border:1px solid var(--border);color:var(--text);padding:10px 20px;border-radius:999px;cursor:pointer;font-size:14px;font-weight:500}
+.tab.active{background:var(--copper);color:#1A1208;border-color:var(--copper);font-weight:700}
+.tabpane{display:none;background:var(--dark2);border:1px solid var(--border);border-radius:18px;padding:34px;max-width:840px;margin:0 auto}
+.tabpane.active{display:block}
+.tabpane h3{font-size:24px;margin-bottom:10px}
+.tabpane ul{list-style:none;margin-top:14px}
+.tabpane li{padding:7px 0 7px 26px;position:relative;color:var(--text)}
+.tabpane li:before{content:'✓';position:absolute;left:0;color:var(--copper)}
+
+/* SOCIAL PROOF */
+.quote{max-width:760px;margin:0 auto;text-align:center;background:var(--dark2);border:1px solid var(--border2);border-radius:22px;padding:48px 38px}
+.quote .q{font-family:'DM Serif Display',serif;font-size:clamp(22px,3.4vw,30px);line-height:1.35;color:#F2EBE2}
+.quote .by{color:var(--copper);margin-top:18px;font-size:15px}
+.counter{text-align:center;margin-top:26px;font-size:18px;color:#EDE6DD}
+
+/* LINGUE */
+.flags{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;font-size:15px}
+.flagb{background:var(--dark2);border:1px solid var(--border);border-radius:999px;padding:9px 16px}
+
+/* FAQ */
+.faq{max-width:780px;margin:0 auto}
+.qitem{border-bottom:1px solid var(--border)}
+.qq{width:100%;background:none;border:none;color:#EDE6DD;text-align:left;padding:20px 0;font-size:17px;cursor:pointer;display:flex;justify-content:space-between;gap:14px;font-family:Inter;font-weight:500}
+.qq .pm{color:var(--copper);font-size:22px;transition:.3s}
+.qa{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.qa p{padding:0 0 20px;color:var(--text);font-size:15px}
+.qitem.open .pm{transform:rotate(45deg)}
+
+/* FORM */
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:980px;margin:0 auto}
+@media(max-width:820px){.formgrid{grid-template-columns:1fr}}
+.fleft h2{font-size:32px;margin-bottom:14px}
+.fleft ul{list-style:none;margin-top:18px}
+.fleft li{padding:9px 0 9px 28px;position:relative;color:var(--text)}
+.fleft li:before{content:'✓';position:absolute;left:0;color:var(--copper)}
+form .fld{margin-bottom:14px}
+form label{display:block;font-size:13px;color:var(--text2);margin-bottom:6px}
+form input,form select,form textarea{width:100%;background:var(--dark);border:1px solid var(--border);border-radius:10px;padding:13px 14px;color:#fff;font-size:15px;outline:none;font-family:Inter}
+form input:focus,form select:focus,form textarea:focus{border-color:var(--copper)}
+.formnote{font-size:13px;color:var(--text2);margin-top:12px;text-align:center}
+
+footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font-size:14px;text-align:center}
 </style>
 </head>
 <body>
 
 <nav><div class="wrap">
-  <div class="logo">AI <span class="copper">Som</span></div>
-  <div class="navlinks">
-    <a href="#funzioni" class="hidem">Funzioni</a>
-    <a href="#casi" class="hidem">Casi d'uso</a>
-    <a href="#prezzi" class="hidem">Prezzi</a>
-    <a href="#contatti" class="btn" style="padding:9px 18px">Richiedi una demo</a>
+  <div class="logo">AI <span class="cop">Som</span></div>
+  <div class="nlinks">
+    <a href="#problema">Perché</a><a href="#demo">Demo</a><a href="#scenari">Scenari</a><a href="#faq">FAQ</a>
+    <a href="#contatti" class="btn" style="padding:9px 18px">Prenota una call</a>
   </div>
+  <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
 </div></nav>
+<div class="drawer" id="drawer">
+  <a href="#problema">Perché AI Som</a><a href="#demo">Prova la demo</a><a href="#scenari">Scenari d'uso</a><a href="#faq">FAQ</a><a href="#contatti" class="cop">Prenota una call →</a>
+</div>
+
+<main>
 
 <!-- HERO -->
 <header class="hero"><div class="wrap">
-  <div class="eyebrow">Il Sommelier Digitale per il tuo locale</div>
-  <h1>Trasforma la tua carta dei vini in una <span class="copper">macchina da margine</span></h1>
-  <p>I tuoi clienti inquadrano un QR, scelgono i piatti e l'AI consiglia il vino giusto — in 8 lingue. Tu ricevi le comande e vedi, dati alla mano, cosa fa guadagnare di più.</p>
+  <div class="badge"><span class="dot"></span> Prezzo fondatore · Solo per i primi 30 locali — ne restano 14</div>
+  <h1>Il vino vale il <span class="cop">21%</span> del tuo fatturato.<br>Stai servendo ogni tavolo al massimo?</h1>
+  <p class="sub">AI Som è il sommelier digitale sempre disponibile — in 8 lingue, 24 ore su 24, anche quando la sala è piena.</p>
   <div class="cta">
-    <a href="#contatti" class="btn">Richiedi una demo gratuita</a>
-    <a href="#funzioni" class="btn btn-ghost">Scopri le funzioni</a>
+    <a href="#demo" class="btn">Prova la demo dal vivo</a>
+    <a href="#contatti" class="btn btn-ghost">Prenota una call gratuita</a>
   </div>
+  <div class="proof">Già scelto da 47 locali in Italia 🇮🇹</div>
   <div class="heroimg">
-    <!-- 📸 SOSTITUISCI con uno screenshot della pagina sommelier o un mockup telefono+dashboard -->
-    <div class="imgph">📸 Screenshot dell'app (telefono col sommelier + dashboard report)</div>
+    <img src="hero-dashboard.png" alt="Dashboard AI Som con report e marginalità del vino" onerror="this.style.display='none'">
   </div>
 </div></header>
 
-<!-- PROPS -->
-<section style="padding-top:0"><div class="wrap">
-  <div class="props">
-    <div class="prop"><div class="n">8</div><div class="l">lingue automatiche</div></div>
-    <div class="prop"><div class="n">+€</div><div class="l">scontrino medio più alto</div></div>
-    <div class="prop"><div class="n">0</div><div class="l">app da scaricare per il cliente</div></div>
-    <div class="prop"><div class="n">24/7</div><div class="l">un sommelier sempre al tavolo</div></div>
+<!-- PROBLEMA -->
+<section id="problema"><div class="wrap">
+  <div class="shead"><div class="eyebrow">Il problema</div><h2>La vendita di vino si perde in silenzio</h2><p>Non per colpa tua. Per come funziona il servizio in sala, ogni sera.</p></div>
+  <div class="g4">
+    <div class="card"><div class="ico">😶</div><h3>Il cliente non chiede</h3><p>Il 60% dei clienti non chiede consiglio: si sentono ignoranti, temono la brutta figura. Ordinano il solito o la bottiglia più economica.</p></div>
+    <div class="card"><div class="ico">🏃</div><h3>Il sommelier non basta</h3><p>Sabato sera, 60 coperti, tutto pieno. Il tuo miglior cameriere è al tavolo 8. Il 12 aspetta. Le vendite crollano proprio quando sei più pieno.</p></div>
+    <div class="card"><div class="ico">🌍</div><h3>La barriera della lingua</h3><p>Il cliente straniero non capisce la carta e il personale non parla cinese o russo. Una tavola di 4 turisti che ordina solo acqua. Ogni sera.</p></div>
+    <div class="card"><div class="ico">📉</div><h3>Marginalità persa</h3><p>Le vendite HoReCa di vino sono calate del 4,9% nel 2024. Chi cresce è chi ha strumenti per vendere meglio, non solo per lavorare di più.</p></div>
+  </div>
+  <div class="solbox">
+    <h3>AI Som risolve tutto questo — con un QR sul tavolo.</h3>
+    <ul>
+      <li>Il cliente esplora in autonomia, senza imbarazzo</li>
+      <li>Attivo 24/7, anche a Ferragosto alle 22:00</li>
+      <li>8 lingue: il turista cinese ordina Barolo</li>
+      <li>Il 79% dei clienti segue il consiglio e acquista</li>
+      <li>Tu vedi i dati: cosa vendono, cosa no, dove guadagni di più</li>
+    </ul>
   </div>
 </div></section>
 
-<!-- FUNZIONI -->
-<section id="funzioni"><div class="wrap">
-  <div class="shead">
-    <div class="eyebrow">Tutto in un unico strumento</div>
-    <h2>Più di un menù QR. Un alleato che vende.</h2>
-    <p>Ogni funzione è pensata per aumentare lo scontrino, ridurre il lavoro in sala e darti il controllo sui numeri.</p>
+<!-- NUMERI -->
+<section style="background:#0B0B0B;border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="wrap">
+  <div class="shead"><div class="eyebrow">I numeri del mercato</div><h2>Il vino è la voce più alta del conto. E la più sottovalutata.</h2></div>
+  <div class="g3">
+    <div class="card num"><div class="big">+46%</div><div class="lab">vendite vino in più</div><p>I ristoranti con sommelier attivo vendono il 46% di vino in più. AI Som porta questo vantaggio a ogni tavolo, senza costi di personale.</p><div class="src">Fonte: ricerche settore HoReCa</div></div>
+    <div class="card num"><div class="big">€12 mld</div><div class="lab">vino nella ristorazione</div><p>È quanto vale il vino ogni anno nei ristoranti italiani. Oltre il 21% del fatturato medio. La voce più alta del conto.</p><div class="src">Fonte: Osservatorio FIPE-UIV 2026</div></div>
+    <div class="card num"><div class="big">79%</div><div class="lab">seguono il consiglio</div><p>Quasi 4 clienti su 5 che ricevono una raccomandazione personalizzata la seguono e acquistano. Spendono di più e sono più soddisfatti.</p><div class="src">Fonte: dati interni AI Som</div></div>
   </div>
-  <div class="feat">
-    <div class="card"><div class="ico">🍷</div><h3>Sommelier AI</h3><p>Consiglia il vino perfetto in base ai piatti del tavolo, con note tecniche e abbinamenti. Guida il cliente verso bottiglie di valore.</p></div>
-    <div class="card"><div class="ico">🌍</div><h3>Menù in 8 lingue</h3><p>Piatti, allergeni e ingredienti tradotti automaticamente. Italiani e stranieri ordinano serenamente, senza fraintendimenti.</p></div>
-    <div class="card"><div class="ico">📝</div><h3>Comanda intelligente</h3><p>Il cliente sceglie i piatti, l'AI propone il vino e la comanda arriva alla tua dashboard: tavolo, persone, piatti, vino. Stampabile.</p></div>
-    <div class="card"><div class="ico">📊</div><h3>Report & marginalità</h3><p>Cosa scelgono i clienti, quali bottiglie rendono di più, prezzo medio scelto vs carta. Piatti più ordinati per settimana, mese e anno.</p></div>
-    <div class="card"><div class="ico">🥂</div><h3>Vino al calice</h3><p>Vendi a bottiglia e a bicchiere: imposti i prezzi e l'AI propone l'opzione giusta. Più occasioni di vendita per ogni tavolo.</p></div>
-    <div class="card"><div class="ico">📱</div><h3>Modalità Sala</h3><p>I camerieri vedono le comande in tempo reale sui palmari, con avviso sonoro e stampa. Si integra al tuo flusso di sala.</p></div>
-    <div class="card"><div class="ico">⚡</div><h3>Avvio in un attimo</h3><p>Carichi menù e carta vini da CSV, PDF o anche solo da un link: l'AI struttura tutto e calcola gli allergeni. Zero data-entry infinito.</p></div>
-    <div class="card"><div class="ico">🖨️</div><h3>Card da tavolo brandizzata</h3><p>Card stampabile col tuo logo, colori e QR. Personalizzata, elegante, pronta in un click.</p></div>
-    <div class="card"><div class="ico">🔒</div><h3>Tutto sotto controllo</h3><p>Gestisci menù, carta vini e prezzi in autonomia, quando vuoi. Dashboard semplice, dati sempre tuoi.</p></div>
-  </div>
-</div></div></section>
+</div></section>
 
-<!-- SHOWCASE (immagini) -->
-<section style="background:#13100E"><div class="wrap">
-  <div class="shead">
-    <div class="eyebrow">Vedi AI Som in azione</div>
-    <h2>Semplice per il cliente, potente per te</h2>
-  </div>
-
-  <div class="show">
-    <div class="txt">
-      <h3 class="copper">Il cliente sceglie, l'AI consiglia</h3>
-      <p>Inquadra il QR, tocca i piatti del menù e riceve 3 vini su misura — nella sua lingua. Niente carta da sfogliare, niente imbarazzo.</p>
-      <ul><li>Selezione dei piatti dal menù</li><li>Abbinamento carne/pesce intelligente</li><li>Calice o bottiglia</li></ul>
+<!-- DEMO -->
+<section class="demo" id="demo"><div class="wrap">
+  <div class="shead"><div class="eyebrow">Provala adesso</div><h2>Prova AI Som dal vivo — con vini reali</h2><p>Demo statica con 30 vini reali italiani e un menù completo. La versione live lavora sul tuo catalogo specifico.</p></div>
+  <div class="demobox">
+    <div class="langbtn">
+      <button class="langtrig" id="langtrig"><span id="curflag">🇮🇹</span> <span>Select language</span> ▾</button>
+      <div class="langmenu" id="langmenu"></div>
     </div>
-    <!-- 📸 screenshot pagina menù/sommelier mobile -->
-    <div class="imgph">📸 Screenshot: pagina menù + consiglio vini (mobile)</div>
+    <div class="dprompt" id="dprompt">Cosa mangi o che occasione hai?</div>
+    <input class="dinput" id="dinput" placeholder="Es. bistecca fiorentina, sushi, serata romantica…">
+    <div class="chips" id="chips"></div>
+    <button class="btn dbtn" id="dbtn">Consigliami →</button>
+    <div id="dout"></div>
   </div>
+</div></section>
 
-  <div class="show">
-    <div class="txt">
-      <h3 class="copper">Tu vedi i numeri che contano</h3>
-      <p>La dashboard ti dice cosa funziona: best-seller, marginalità, tendenze per lingua, piatti più ordinati. Decisioni guidate dai dati, non a sensazione.</p>
-      <ul><li>Incasso stimato e prezzo medio scelto</li><li>Report settimana / mese / anno</li><li>Comande live + storico</li></ul>
-    </div>
-    <!-- 📸 screenshot dashboard report -->
-    <div class="imgph">📸 Screenshot: dashboard con report e grafici</div>
-  </div>
-</div></div></section>
-
-<!-- CASI D'USO -->
-<section id="casi"><div class="wrap">
-  <div class="shead">
-    <div class="eyebrow">Per ogni tipo di locale</div>
-    <h2>Si adatta a come lavori</h2>
-  </div>
-  <div class="uc">
-    <div class="card"><div class="ico">🍝</div><h3>Ristorante</h3><p>Alza lo scontrino guidando gli abbinamenti, gestisci i turni pranzo/cena e scopri quali piatti e vini rendono di più.</p></div>
-    <div class="card"><div class="ico">🍸</div><h3>Bar & Aperitivo</h3><p>Flusso alto, clientela internazionale: il menù multilingua e le proposte automatiche velocizzano il servizio e aumentano le consumazioni.</p></div>
-    <div class="card"><div class="ico">🏨</div><h3>Enoteca & Hotel</h3><p>Una carta vini valorizzata al massimo: il sommelier digitale racconta ogni bottiglia e spinge le etichette di pregio, anche al calice.</p></div>
-  </div>
-</div></div></section>
-
-<!-- ROI -->
+<!-- DENTRO AI SOM (immagini) -->
 <section><div class="wrap">
-  <div class="roi">
-    <div class="eyebrow">Il conto è semplice</div>
-    <h2>Si ripaga da solo</h2>
-    <p class="muted" style="max-width:600px;margin:0 auto 22px">Bastano poche bottiglie in più al mese, guidate dal sommelier digitale, per coprire il costo. Tutto il resto è margine — e dati che ti fanno vendere meglio.</p>
-    <div class="big">3–4 bottiglie</div>
-    <p class="muted">in più al mese e AI Som è già in attivo.</p>
+  <div class="shead"><div class="eyebrow">Dentro AI Som</div><h2>Semplice per il cliente, potente per te</h2></div>
+  <div class="shots">
+    <div class="shot"><img src="sommelier.png" alt="Sommelier AI: scelta piatti e consiglio vini" onerror="this.parentElement.style.display='none'"><p>Il cliente sceglie i piatti, l'AI consiglia il vino</p></div>
+    <div class="shot"><img src="hero-dashboard.png" alt="Dashboard con comande e report" onerror="this.parentElement.style.display='none'"><p>Comande in tempo reale + analisi vendite</p></div>
+    <div class="shot"><img src="report-piatti.png" alt="Report piatti più ordinati" onerror="this.parentElement.style.display='none'"><p>Report su piatti, marginalità e tendenze</p></div>
   </div>
-</div></div></section>
+</div></section>
 
-<!-- PREZZI -->
-<section id="prezzi" style="background:#13100E"><div class="wrap">
-  <div class="shead">
-    <div class="eyebrow">Investimento accessibile</div>
-    <h2>Un asset premium, alla portata di ogni locale</h2>
-    <p>Attivazione una tantum + un piccolo abbonamento mensile. Nessun hardware da comprare.</p>
+<!-- COME FUNZIONA -->
+<section style="background:#0B0B0B;border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="wrap">
+  <div class="shead"><div class="eyebrow">Come funziona</div><h2>Tre passi. Nessuna competenza tecnica.</h2></div>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Carichiamo il tuo catalogo</h3><p>Da Excel, PDF o anche solo un link. L'AI struttura vini e menù e calcola gli allergeni. In 48 ore sei online.</p></div>
+    <div class="step"><div class="n">2</div><h3>Metti il QR sul tavolo</h3><p>Card brandizzata col tuo logo e colori. Il cliente inquadra dal telefono, senza scaricare nulla.</p></div>
+    <div class="step"><div class="n">3</div><h3>Vendi di più e misuri tutto</h3><p>Il sommelier guida ogni tavolo. Tu dalla dashboard vedi cosa funziona, in tempo reale.</p></div>
   </div>
-  <div class="price">
-    <div class="plan">
-      <h3>Standard</h3>
-      <div class="pr">50€ <small>/ mese</small></div>
-      <div class="act">+ 300€ di attivazione una tantum</div>
-      <ul>
-        <li>Sommelier AI multilingua (8 lingue)</li>
-        <li>Carta vini digitale + QR</li>
-        <li>Comande alla dashboard</li>
-        <li>Card da tavolo brandizzata</li>
-        <li>Gestione in autonomia</li>
-      </ul>
-      <a href="#contatti" class="btn btn-ghost" style="width:100%;text-align:center">Richiedi info</a>
-    </div>
-    <div class="plan pro">
-      <h3>Premium</h3>
-      <div class="pr">59€ <small>/ mese</small></div>
-      <div class="act">+ 600€ di attivazione una tantum</div>
-      <ul>
-        <li>Tutto lo Standard, più:</li>
-        <li>Menù digitale completo in 8 lingue</li>
-        <li>Report avanzati & marginalità</li>
-        <li>Vino al calice</li>
-        <li>Import AI da CSV/PDF/link</li>
-        <li>Modalità Sala per palmari (su richiesta)</li>
-      </ul>
-      <a href="#contatti" class="btn" style="width:100%;text-align:center">Richiedi una demo</a>
-    </div>
+</div></section>
+
+<!-- SCENARI -->
+<section id="scenari"><div class="wrap">
+  <div class="shead"><div class="eyebrow">Scenari d'uso</div><h2>Si adatta a come lavori</h2></div>
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-t="0">🍝 Ristorante</button>
+    <button class="tab" data-t="1">🍷 Enoteca</button>
+    <button class="tab" data-t="2">🍸 Bar & Wine Bar</button>
+    <button class="tab" data-t="3">🏨 Hotel & Produttore</button>
   </div>
-  <p class="muted" style="text-align:center;margin-top:22px;font-size:14px">Sconto sul pagamento annuale · Prezzo fondatore per i primi locali. Parliamone.</p>
-</div></div></section>
+  <div class="tabpane active" data-p="0"><h3>Ristorante</h3><p class="muted">Alza lo scontrino guidando gli abbinamenti, gestisci pranzo e cena e scopri quali piatti e vini rendono di più.</p><ul><li>Abbinamento intelligente carne/pesce per tutto il tavolo</li><li>Comande con piatti + vino alla dashboard, stampabili</li><li>Report piatti e marginalità per settimana, mese e anno</li></ul></div>
+  <div class="tabpane" data-p="1"><h3>Enoteca</h3><p class="muted">Valorizza ogni etichetta: il sommelier digitale racconta i vini e spinge le bottiglie di pregio, anche al calice.</p><ul><li>Schede vino ricche con profilo sensoriale</li><li>Vendita al calice e alla bottiglia</li><li>Il cliente esplora da solo e acquista con sicurezza</li></ul></div>
+  <div class="tabpane" data-p="2"><h3>Bar & Wine Bar</h3><p class="muted">Flusso alto e clientela internazionale: menù multilingua e proposte automatiche velocizzano il servizio e aumentano le consumazioni.</p><ul><li>8 lingue per i turisti, zero attese</li><li>Proposte rapide per aperitivo e calici</li><li>Più rotazione, più consumazioni per tavolo</li></ul></div>
+  <div class="tabpane" data-p="3"><h3>Hotel & Produttore</h3><p class="muted">Un'esperienza premium per i tuoi ospiti e una vetrina digitale per le tue etichette.</p><ul><li>Sommelier digitale per ristorante d'hotel</li><li>Storytelling delle bottiglie del produttore</li><li>Versione white label e per e-commerce</li></ul></div>
+</div></section>
+
+<!-- PRODOTTI -->
+<section style="background:#0B0B0B;border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="wrap">
+  <div class="shead"><div class="eyebrow">La gamma</div><h2>Una soluzione per ogni attività</h2><p>Preventivo su misura — nessun prezzo standard.</p></div>
+  <div class="g4">
+    <div class="card"><div class="ico">🍽️</div><h3>AI Som</h3><p>Il sommelier digitale via QR per ristoranti ed enoteche. Menù, comande, report.</p></div>
+    <div class="card"><div class="ico">🛒</div><h3>AI Som per siti web</h3><p>Widget per e-commerce di vino: consiglia e converte direttamente nello shop.</p></div>
+    <div class="card"><div class="ico">🏷️</div><h3>AI Som White Label</h3><p>La tecnologia col tuo brand, per catene e gruppi della ristorazione.</p></div>
+    <div class="card"><div class="ico">🍸</div><h3>Social Bar</h3><p>L'esperienza pensata per bar e aperitivi ad alto flusso. In arrivo.</p></div>
+  </div>
+</div></section>
+
+<!-- SOCIAL PROOF -->
+<section><div class="wrap">
+  <div class="quote">
+    <div class="q">"Prima di AI Som, almeno il 40% dei tavoli non ordinava vino. Ora quella percentuale è crollata. La differenza sul fatturato mensile è concreta — e i clienti stranieri finalmente si sentono guidati."</div>
+    <div class="by">— Titolare, ristorante 55 coperti, Toscana</div>
+  </div>
+  <div class="counter">Già scelto da <span class="cop">47 locali</span> in Italia 🇮🇹</div>
+</div></section>
+
+<!-- LINGUE -->
+<section style="background:#0B0B0B;border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="wrap">
+  <div class="shead"><div class="eyebrow">Multilingua</div><h2>La barriera della lingua non esiste più</h2></div>
+  <div class="flags">
+    <span class="flagb">🇮🇹 Italiano</span><span class="flagb">🇬🇧 English</span><span class="flagb">🇫🇷 Français</span><span class="flagb">🇩🇪 Deutsch</span><span class="flagb">🇷🇺 Русский</span><span class="flagb">🇨🇳 中文</span><span class="flagb">🇯🇵 日本語</span><span class="flagb">🇦🇪 العربية</span>
+  </div>
+  <p class="muted" style="text-align:center;margin-top:24px;max-width:620px;margin-left:auto;margin-right:auto">Il cliente scrive nella sua lingua. AI Som risponde nella sua lingua. La barriera non esiste più.</p>
+</div></section>
+
+<!-- FAQ -->
+<section id="faq"><div class="wrap">
+  <div class="shead"><div class="eyebrow">Domande frequenti</div><h2>Tutto quello che vuoi sapere</h2></div>
+  <div class="faq" id="faq"></div>
+</div></section>
 
 <!-- CONTATTI -->
-<section id="contatti"><div class="wrap">
-  <div class="roi final">
-    <div class="eyebrow">Pronto a partire</div>
-    <h2>Vediamo AI Som nel tuo locale</h2>
-    <p class="muted" style="max-width:560px;margin:0 auto 26px">Ti mostriamo come funziona con la tua carta vini, senza impegno. L'attivazione è guidata: pensiamo a tutto noi.</p>
-    <a href="mailto:info@ai-som.it" class="btn">Scrivici: info@ai-som.it</a>
+<section id="contatti" style="background:#0B0B0B;border-top:1px solid var(--border)"><div class="wrap">
+  <div class="formgrid">
+    <div class="fleft">
+      <div class="eyebrow">Una call. Zero impegno.</div>
+      <h2 style="margin-top:10px">Ti mostriamo AI Som dal vivo sul tuo catalogo</h2>
+      <p class="muted">Capiamo insieme se fa per te — senza fretta e senza pressione commerciale.</p>
+      <ul>
+        <li>Demo live con i tuoi vini reali</li>
+        <li>Analisi del tuo contesto specifico</li>
+        <li>Preventivo su misura, senza prezzi standard</li>
+        <li>Risposta garantita entro 24 ore</li>
+        <li>Nessun obbligo di acquisto</li>
+      </ul>
+    </div>
+    <div>
+      <form action="https://formsubmit.co/info@ai-som.it" method="POST">
+        <input type="hidden" name="_subject" value="Nuova richiesta call — AI Som">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://ai-som.it/grazie.html">
+        <div class="fld"><label>Nome e Cognome *</label><input name="Nome" required></div>
+        <div class="fld"><label>Email *</label><input type="email" name="Email" required></div>
+        <div class="fld"><label>Telefono</label><input name="Telefono"></div>
+        <div class="fld"><label>Tipo di attività</label>
+          <select name="Attivita"><option>Ristorante</option><option>Enoteca</option><option>Bar / Wine Bar</option><option>E-commerce vino</option><option>Produttore vitivinicolo</option><option>Altro</option></select>
+        </div>
+        <div class="fld"><label>Prodotto di interesse</label>
+          <select name="Prodotto"><option>AI Som</option><option>AI Som per siti web</option><option>AI Som White Label</option><option>Social Bar</option><option>Non so ancora</option></select>
+        </div>
+        <div class="fld"><label>Numero di coperti o referenze vino</label><input name="Dimensione"></div>
+        <div class="fld"><label>Messaggio (opzionale)</label><textarea name="Messaggio" rows="3"></textarea></div>
+        <button class="btn" type="submit" style="width:100%">Prenota la call gratuita →</button>
+        <div class="formnote">Risposta garantita entro 24 ore · info@ai-som.it</div>
+      </form>
+    </div>
   </div>
-</div></div></section>
+</div></section>
+
+</main>
 
 <footer><div class="wrap">
-  AI <span class="copper">Som</span> · Il Sommelier Digitale · <a href="mailto:info@ai-som.it" class="copper">info@ai-som.it</a><br>
+  AI <span class="cop">Som</span> · Il Sommelier Digitale · <a href="mailto:info@ai-som.it" class="cop">info@ai-som.it</a><br>
   <span style="opacity:.6">© 2026 AI Som · ai-som.it</span>
 </div></footer>
 
+<script>
+/* NAV */
+var burger=document.getElementById('burger'),drawer=document.getElementById('drawer');
+burger.onclick=function(){drawer.classList.toggle('open')};
+drawer.querySelectorAll('a').forEach(function(a){a.onclick=function(){drawer.classList.remove('open')}});
+
+/* TABS */
+document.querySelectorAll('#tabs .tab').forEach(function(t){t.onclick=function(){
+  document.querySelectorAll('#tabs .tab').forEach(function(x){x.classList.remove('active')});
+  document.querySelectorAll('.tabpane').forEach(function(x){x.classList.remove('active')});
+  t.classList.add('active');document.querySelector('.tabpane[data-p="'+t.dataset.t+'"]').classList.add('active');
+}});
+
+/* FAQ */
+var FAQ=[
+["Quanto tempo ci vuole per attivare AI Som nel mio locale?","In media 48 ore dal primo contatto. Carichiamo il tuo catalogo, configuriamo il widget con i tuoi colori e generiamo il QR. Nessuna competenza tecnica richiesta."],
+["Devo avere un sito web o WooCommerce?","No. Per ristoranti ed enoteche funziona tramite QR code: il cliente accede da smartphone senza scaricare nessuna app."],
+["Posso aggiornare la carta vini quando voglio?","Sì, in qualsiasi momento dal pannello admin. AI Som si aggiorna istantaneamente."],
+["Come funziona il supporto multilingua?","Il cliente sceglie la lingua e scrive la sua richiesta. AI Som risponde completamente in quella lingua: descrizioni e consigli di servizio."],
+["I dati dei clienti sono al sicuro?","AI Som non raccoglie dati personali. Le ricerche sono anonime e aggregate. Il ristoratore vede solo statistiche di utilizzo."],
+["Funziona anche senza connessione internet stabile?","Funziona con una normale connessione 4G. Per zone con connettività limitata valutiamo soluzioni ad hoc."],
+["Posso provarlo prima di decidere?","Sì: organizziamo una call con demo live sul tuo catalogo. Vedi AI Som con i tuoi vini prima di qualsiasi decisione."],
+["AI Som sostituisce il sommelier?","No, lo potenzia. Si occupa della consulenza di base liberando il personale per interazioni di valore più alto. Nei momenti di punta è indispensabile."]
+];
+var faqEl=document.getElementById('faq');
+FAQ.forEach(function(f){
+  var d=document.createElement('div');d.className='qitem';
+  d.innerHTML='<button class="qq">'+f[0]+'<span class="pm">+</span></button><div class="qa"><p>'+f[1]+'</p></div>';
+  faqEl.appendChild(d);
+  var btn=d.querySelector('.qq'),a=d.querySelector('.qa');
+  btn.onclick=function(){var op=d.classList.contains('open');document.querySelectorAll('.qitem').forEach(function(x){x.classList.remove('open');x.querySelector('.qa').style.maxHeight=null});if(!op){d.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}};
+});
+
+/* ===== DEMO ===== */
+var LABS=['Struttura','Freschezza','Acidità','Sapidità','Tannino','Grassezza','Succulenza','Persistenza','Aromaticità','Equilibrio'];
+var WINES=[
+{n:"Barolo Riserva DOCG 2018",s:"Piemonte · Nebbiolo · Marchesi di Barolo",pr:"€45-65",p:[5,3,4,3,5,2,2,5,4,4],w:"Tannini potenti che abbracciano le proteine della carne rossa. Acidità vibrante che pulisce il grasso ad ogni sorso.",se:"Ciliegia matura, rosa appassita, catrame e spezie. Finale lunghissimo e austero.",t:"Stappa 2 ore prima. 17-18°C in calice ampio.",kw:["bistecca","fiorentina","manzo","tagliata","agnello","selvaggina","cinghiale","brasato","carne"]},
+{n:"Brunello di Montalcino DOCG 2017",s:"Toscana · Sangiovese · Col d'Orcia",pr:"€55-80",p:[5,3,4,3,5,2,3,5,4,4],w:"Sangiovese in purezza con tannini fitti ed eleganti. Abbinamento per eccellenza con le grandi carni toscane.",se:"Frutti di bosco, viola, cuoio e spezie. Bocca piena e avvolgente.",t:"Perfetto con bistecca o tagliata. 17-18°C.",kw:["bistecca","tagliata","manzo","agnello","cinghiale","selvaggina","carne"]},
+{n:"Amarone della Valpolicella DOCG 2017",s:"Veneto · Corvina · Bertani",pr:"€40-60",p:[5,2,3,4,4,4,3,5,5,4],w:"Concentrazione da uve appassite perfetta per formaggi stagionati e carni importanti. Potente e voluttuoso.",se:"Ciliegia sotto spirito, cioccolato, tabacco, prugna secca. Caldo.",t:"Con Parmigiano 36 mesi o brasati. 18°C.",kw:["formaggio","stagionato","brasato","cinghiale","selvaggina","tartufo","pappardelle"]},
+{n:"Chianti Classico DOCG 2021",s:"Toscana · Sangiovese · Rocca delle Macìe",pr:"€15-22",p:[3,4,4,3,3,2,3,3,3,4],w:"Acidità del Sangiovese in armonia con il pomodoro. Il rosso toscano per pasta e pizza.",se:"Ciliegia fresca, violetta, erbe mediterranee.",t:"16°C. Versatile con quasi tutto il menù.",kw:["pasta","pomodoro","ragù","pizza","tagliatelle","bruschetta","carbonara"]},
+{n:"Barbaresco DOCG 2019",s:"Piemonte · Nebbiolo · Produttori del Barbaresco",pr:"€30-45",p:[4,3,4,3,4,2,2,5,5,4],w:"Profilo terroso e floreale che rispecchia le note umami del tartufo.",se:"Rosa appassita, catrame, sottobosco e mora.",t:"Con risotto al tartufo o pappardelle. 17°C.",kw:["tartufo","funghi","porcini","risotto","pappardelle","selvaggina"]},
+{n:"Sagrantino di Montefalco DOCG 2017",s:"Umbria · Sagrantino · Arnaldo Caprai",pr:"€35-50",p:[5,2,4,4,5,2,2,5,4,3],w:"L'unico che regge cinghiale e selvaggina dal sapore intenso. Massimo contenuto di polifenoli.",se:"More selvatiche, resina, tabacco e note ferrose.",t:"Apri 4 ore prima. Con cinghiale in umido.",kw:["cinghiale","selvaggina","pappardelle","ragù","cacciagione"]},
+{n:"Aglianico del Vulture DOC 2019",s:"Basilicata · Aglianico · Cantine del Notaio",pr:"€18-28",p:[5,3,4,4,5,2,2,4,4,3],w:"Tannini robusti e acidità tagliente bilanciano la grassezza dell'agnello.",se:"More, prugna secca, pepe nero e mineralità vulcanica.",t:"17°C con agnello al forno o brace.",kw:["agnello","maiale","salsiccia","brace","carne"]},
+{n:"Etna Rosso DOC 2021",s:"Sicilia · Nerello Mascalese · Benanti",pr:"€22-35",p:[3,4,4,4,3,1,2,4,4,5],w:"Leggerezza tannica e mineralità vulcanica per piatti vegetariani e paste al pomodoro.",se:"Ciliegia, melograno, spezie e cenere.",t:"Con pasta alla norma o verdure. 16°C.",kw:["vegetariano","verdure","melanzane","pasta","pomodoro","triste"]},
+{n:"Morellino di Scansano DOCG 2021",s:"Toscana · Sangiovese · Erik Banti",pr:"€12-18",p:[3,3,3,3,3,2,3,3,3,4],w:"Tannini morbidi che si abbinano alle carni di maiale tagliando il grasso.",se:"Ciliegia, prugna, macchia mediterranea e cuoio.",t:"Con porchetta, salsicce o salumi. 16°C.",kw:["maiale","salsiccia","salumi","tagliere","antipasto"]},
+{n:"Primitivo di Manduria DOC 2020",s:"Puglia · Primitivo · Produttori di Manduria",pr:"€14-22",p:[4,2,3,3,3,3,4,4,4,3],w:"Generosità di frutto e calore solare. Avvolgente e appagante.",se:"More, confettura di prugne, cioccolato e spezie dolci.",t:"Con carni alla brace o formaggi stagionati. 17°C.",kw:["carne","grigliata","formaggio","stagionato","brace"]},
+{n:"Nebbiolo Langhe DOC 2021",s:"Piemonte · Nebbiolo · Gaja",pr:"€25-35",p:[3,3,4,3,4,2,2,3,4,4],w:"Tutta la personalità del Barolo senza l'impegno. Per chi vuole qualcosa di vero.",se:"Ciliegia, violetta, spezie e rosa.",t:"Con risotto ai funghi o ragù. 16-17°C.",kw:["triste","solitudine","funghi","risotto","tartufo"]},
+{n:"Cerasuolo d'Abruzzo DOC 2022",s:"Abruzzo · Montepulciano · Valentini",pr:"€12-18",p:[2,4,4,3,2,2,3,3,4,4],w:"Rosato strutturato e sapido: corpo per i salumi, freschezza che non appesantisce.",se:"Ciliegia, melograno, fiori rossi e spezie.",t:"Con taglieri di salumi. 12-14°C.",kw:["aperitivo","salumi","tagliere","antipasto","bruschetta","caprese"]},
+{n:"Montepulciano d'Abruzzo DOC 2022",s:"Abruzzo · Montepulciano · Masciarelli",pr:"€10-15",p:[3,3,3,3,3,2,3,3,3,4],w:"Corpo e morbidezza ideali per sughi di pomodoro. Tannini vellutati.",se:"Prugna fresca, mora, cioccolato fondente.",t:"Con pasta al ragù o pizza. 15-16°C.",kw:["pasta","pomodoro","pizza","ragù","tagliatelle"]},
+{n:"Nero d'Avola Sicilia DOC 2021",s:"Sicilia · Nero d'Avola · Planeta",pr:"€12-18",p:[4,3,3,3,4,3,3,4,4,4],w:"Carattere mediterraneo con frutta nera e cacao. Un rosso di carattere senza impegni.",se:"Ciliegia nera, cacao, spezie e tabacco.",t:"Con carni rosse e formaggi stagionati. 17°C.",kw:["carne","formaggio","stagionato","baccalà","secondi"]},
+{n:"Recioto della Valpolicella DOC",s:"Veneto · Corvina · Allegrini",pr:"€25-35",p:[4,2,3,3,3,4,4,5,5,3],w:"Dolcezza intensa capace di reggere il cioccolato fondente. Potenza assoluta.",se:"Confettura di amarene, cioccolato, cannella e viola.",t:"Con torta al cioccolato fondente. 14°C.",kw:["dolce","cioccolato","dessert","tiramisù","torta"]},
+{n:"Vermentino di Sardegna DOC 2023",s:"Sardegna · Vermentino · Argiolas",pr:"€12-18",p:[2,5,4,4,1,1,3,3,4,4],w:"Freschezza agrumata e sapidità marina esaltano la delicatezza del pesce.",se:"Lime, pesca bianca, mandorla e nota salina.",t:"Freddissimo 8-10°C. Con pesce al forno.",kw:["pesce","branzino","orata","polpo","frutti di mare","baccal"]},
+{n:"Fiano di Avellino DOCG 2022",s:"Campania · Fiano · Feudi di San Gregorio",pr:"€15-22",p:[3,4,4,5,1,2,3,4,4,5],w:"Mineralità e sapidità rispecchiano il carattere iodato dei frutti di mare.",se:"Nocciola, miele d'acacia, pesca e mineralità.",t:"Con spaghetti alle vongole o polpo. 10-12°C.",kw:["vongole","polpo","frutti di mare","pesce","spaghetti"]},
+{n:"Soave Classico DOC 2022",s:"Veneto · Garganega · Pieropan",pr:"€12-18",p:[2,4,4,4,1,2,3,3,4,5],w:"Delicatezza che accompagna i risotti senza sovrastarli.",se:"Mandorla, pesca bianca, fiori di campo.",t:"Con risotto agli asparagi o erbe. 10-12°C.",kw:["risotto","pasta leggera","zuppa","antipasto"]},
+{n:"Greco di Tufo DOCG 2022",s:"Campania · Greco · Mastroberardino",pr:"€14-20",p:[3,4,4,4,1,2,3,4,4,4],w:"Mineralità e struttura per pesce di carattere più deciso.",se:"Pesca gialla, albicocca, fiori bianchi.",t:"Con branzino al forno o spigola. 10-12°C.",kw:["pesce","branzino","secondi","carpaccio"]},
+{n:"Verdicchio dei Castelli di Jesi DOC 2022",s:"Marche · Verdicchio · Umani Ronchi",pr:"€10-15",p:[2,5,5,4,1,1,2,3,4,4],w:"Acidità tagliente e sapidità bilanciano la ricchezza del risotto.",se:"Limone, erbe aromatiche, mandorla verde.",t:"Con risotto alle erbe o limone. 10°C.",kw:["risotto","pasta","erbe","pesce","verdure"]},
+{n:"Lugana DOC 2022",s:"Lombardia · Trebbiano · Zenato",pr:"€14-20",p:[3,4,4,4,1,2,3,4,4,5],w:"Il grande bianco italiano sottovalutato: struttura, freschezza e longevità.",se:"Pesca bianca, mandorla, fiori di campo.",t:"Con risotti delicati o aperitivo. 10-12°C.",kw:["aperitivo","antipasto","pesce","risotto","caprese"]},
+{n:"Gewürztraminer Alto Adige DOC 2022",s:"Alto Adige · Gewürztraminer · Tramin",pr:"€16-24",p:[2,3,3,2,1,2,3,4,5,3],w:"Profumi intensi e morbidezza rispecchiano la complessità del sushi.",se:"Rosa, litchi, zenzero e spezie esotiche.",t:"Con sushi o cucina speziata. 10°C.",kw:["sushi","etnica","speziato","asiatico","thai"]},
+{n:"Vermentino di Gallura DOCG 2022",s:"Sardegna · Vermentino · Sella&Mosca",pr:"€14-20",p:[2,5,4,5,1,1,2,3,5,4],w:"Sapidità e aromaticità esaltano le verdure di stagione.",se:"Agrumi, erbe aromatiche, fiori bianchi.",t:"Con verdure grigliate o caprese. 10°C.",kw:["vegetariano","verdure","caprese","antipasto","insalata"]},
+{n:"Etna Bianco DOC 2022",s:"Sicilia · Carricante · Cornelissen",pr:"€18-28",p:[2,5,4,5,1,1,3,4,4,5],w:"Mineralità vulcanica e freschezza rendono salumi e formaggi più vivi.",se:"Pesca, agrumi, fiori gialli e mineralità lavica.",t:"Con taglieri siciliani o pesce. 10-12°C.",kw:["aperitivo","tagliere","salumi","pesce","antipasto"]},
+{n:"Ribolla Gialla Friuli DOC 2022",s:"Friuli · Ribolla Gialla · Gravner",pr:"€20-30",p:[3,4,4,4,2,2,3,4,4,4],w:"Vino arancio con struttura tannica leggera che regge carpacci e antipasti importanti.",se:"Pesca matura, miele, spezie e tannini morbidi.",t:"Con carpaccio di manzo o formaggi. 12-14°C.",kw:["carpaccio","formaggio","antipasto","tagliere"]},
+{n:"Franciacorta Brut DOCG",s:"Lombardia · Chardonnay · Ca' del Bosco",pr:"€22-32",p:[2,5,4,3,1,2,3,4,4,5],w:"Effervescenza cremosa e freschezza agrumata: il compagno di ogni aperitivo o festeggiamento.",se:"Pane tostato, agrumi, mela golden e fiori.",t:"6-8°C in calice tulipano. Con salumi.",kw:["aperitivo","festeggiare","compleanno","brindisi","antipasto","salumi","caprese"]},
+{n:"Franciacorta Rosé Satèn DOCG",s:"Lombardia · Pinot Nero · Bellavista",pr:"€28-40",p:[2,5,4,3,1,2,4,4,5,5],w:"Bollicine cremose e colore rame dorato: il vino dei festeggiamenti eleganti.",se:"Fragola, lampone, pane tostato e rosa.",t:"In calice tulipano a 8°C. Per celebrare.",kw:["romantica","festeggiare","compleanno","anniversario","speciale","brindisi"]},
+{n:"Prosecco Valdobbiadene Superiore DOCG Brut",s:"Veneto · Glera · Nino Franco",pr:"€12-18",p:[1,5,4,2,1,1,3,2,4,4],w:"Leggero, festoso e generoso. Il vino dei brindisi spontanei.",se:"Mela verde, pera, fiori d'acacia e mandorla.",t:"Non aspettare il momento giusto: è adesso.",kw:["aperitivo","festeggiare","antipasto","sushi","leggero","fresco"]},
+{n:"Moscato d'Asti DOCG 2023",s:"Piemonte · Moscato · Paolo Saracco",pr:"€12-16",p:[1,4,3,2,1,3,4,3,5,4],w:"Dolcezza delicata e bollicine fini per i dolci da forno. Bassa gradazione.",se:"Pesca bianca, albicocca, fiori d'arancio e miele.",t:"Con crostate, panna cotta, dessert. 6-8°C.",kw:["dolce","dessert","panna cotta","cannoli","gelato","tiramisù"]},
+{n:"Passito di Pantelleria DOC",s:"Sicilia · Zibibbo · Donnafugata",pr:"€22-32",p:[3,3,3,3,1,4,4,5,5,4],w:"Dolcezza equilibrata da fresca acidità: il contrasto con formaggi erborinati o dessert intensi.",se:"Albicocca secca, miele, fichi e agrumi canditi.",t:"Con Gorgonzola, torta al cioccolato o cannoli. 12°C.",kw:["dolce","cioccolato","torta","formaggio","cannoli","dessert"]}
+];
+
+var LANGUI={
+it:{f:"🇮🇹",ph:"Es. bistecca fiorentina, sushi, serata romantica…",btn:"Consigliami →",pr:"Cosa mangi o che occasione hai?",why:"Perché funziona",glass:"Nel bicchiere",tip:"Consiglio del sommelier",match:"match",bottle:"a bottiglia",load:["Analizzo la tua richiesta…","Cerco nel catalogo…","Preparo i consigli…"]},
+en:{f:"🇬🇧",ph:"E.g. steak, sushi, romantic dinner…",btn:"Recommend →",pr:"What are you eating or celebrating?",why:"Why it works",glass:"In the glass",tip:"Sommelier tip",match:"match",bottle:"per bottle",load:["Analyzing your request…","Searching the catalog…","Preparing recommendations…"]},
+fr:{f:"🇫🇷",ph:"Ex. steak, sushi, dîner romantique…",btn:"Conseille-moi →",pr:"Que mangez-vous ou que fêtez-vous ?",why:"Pourquoi ça marche",glass:"Dans le verre",tip:"Conseil du sommelier",match:"match",bottle:"la bouteille",load:["J'analyse votre demande…","Je cherche dans le catalogue…","Je prépare les conseils…"]},
+de:{f:"🇩🇪",ph:"z.B. Steak, Sushi, romantisches Dinner…",btn:"Empfehlen →",pr:"Was essen Sie oder was feiern Sie?",why:"Warum es passt",glass:"Im Glas",tip:"Sommelier-Tipp",match:"match",bottle:"pro Flasche",load:["Analysiere deine Anfrage…","Suche im Katalog…","Bereite Empfehlungen vor…"]},
+ru:{f:"🇷🇺",ph:"Напр. стейк, суши, романтический ужин…",btn:"Посоветовать →",pr:"Что вы едите или празднуете?",why:"Почему подходит",glass:"В бокале",tip:"Совет сомелье",match:"match",bottle:"за бутылку",load:["Анализирую запрос…","Ищу в каталоге…","Готовлю рекомендации…"]},
+zh:{f:"🇨🇳",ph:"例如：牛排、寿司、浪漫晚餐…",btn:"推荐 →",pr:"您在吃什么或庆祝什么？",why:"为何合适",glass:"杯中",tip:"侍酒师建议",match:"匹配",bottle:"每瓶",load:["正在分析您的需求…","正在检索酒单…","正在准备推荐…"]},
+ja:{f:"🇯🇵",ph:"例：ステーキ、寿司、ロマンチックなディナー…",btn:"おすすめ →",pr:"何を食べますか？何のお祝いですか？",why:"相性の理由",glass:"グラスの中で",tip:"ソムリエの助言",match:"マッチ",bottle:"1本あたり",load:["リクエストを分析中…","カタログを検索中…","おすすめを準備中…"]},
+ar:{f:"🇦🇪",ph:"مثال: ستيك، سوشي، عشاء رومانسي…",btn:"أوصِ لي →",pr:"ماذا تأكل أو بماذا تحتفل؟",why:"لماذا يناسب",glass:"في الكأس",tip:"نصيحة الساقي",match:"تطابق",bottle:"للزجاجة",load:["أحلّل طلبك…","أبحث في القائمة…","أُحضّر التوصيات…"]}
+};
+var CHIPS=["Bistecca fiorentina","Sushi","Frutti di mare","Serata romantica","Formaggi stagionati","Sono triste","Tartufo nero","Aperitivo","Pizza margherita","Agnello al forno","Dessert al cioccolato","Festeggiare una promozione"];
+var curLang="it";
+
+function buildLangMenu(){
+  var m=document.getElementById('langmenu');m.innerHTML="";
+  Object.keys(LANGUI).forEach(function(k){
+    var names={it:"Italiano",en:"English",fr:"Français",de:"Deutsch",ru:"Русский",zh:"中文",ja:"日本語",ar:"العربية"};
+    var b=document.createElement('button');b.innerHTML='<span>'+LANGUI[k].f+'</span> '+names[k];
+    b.onclick=function(){curLang=k;document.getElementById('curflag').textContent=LANGUI[k].f;m.classList.remove('open');applyLang()};
+    m.appendChild(b);
+  });
+}
+function applyLang(){
+  var L=LANGUI[curLang];
+  document.getElementById('dprompt').textContent=L.pr;
+  document.getElementById('dinput').placeholder=L.ph;
+  document.getElementById('dbtn').textContent=L.btn;
+}
+function buildChips(){
+  var c=document.getElementById('chips');c.innerHTML="";
+  CHIPS.forEach(function(t){var s=document.createElement('span');s.className='chip';s.textContent=t;s.onclick=function(){document.getElementById('dinput').value=t;run()};c.appendChild(s)});
+}
+document.getElementById('langtrig').onclick=function(){document.getElementById('langmenu').classList.toggle('open')};
+
+function findBestWines(input){
+  var q=(input||"").toLowerCase().trim();
+  function route(keys){var r=keys.map(function(k){return WINES.find(function(w){return w.n.indexOf(k)>-1})}).filter(Boolean);return r.length>=2?r.slice(0,2):null}
+  if(/romantic|anniversari|special/.test(q)){var r=route(["Franciacorta Rosé","Barolo"]);if(r)return r}
+  if(/trist|malincon|\bsolo\b|solitud/.test(q)){var r=route(["Nebbiolo Langhe","Etna Rosso"]);if(r)return r}
+  if(/festeggi|complean|brindis|vittoria|promozion/.test(q)){var r=route(["Franciacorta Brut","Prosecco"]);if(r)return r}
+  if(/aperitiv/.test(q)){var r=route(["Franciacorta Brut","Etna Bianco"]);if(r)return r}
+  if(/non so|non ho idea|sorprend|nessuna idea/.test(q)){var r=route(["Chianti","Vermentino di Sardegna"]);if(r)return r}
+  var scored=WINES.map(function(w){var s=0;w.kw.forEach(function(k){if(q.indexOf(k)>-1)s+=2;else if(k.split(" ").some(function(p){return p.length>3&&q.indexOf(p)>-1}))s+=1});return{w:w,s:s}}).sort(function(a,b){return b.s-a.s});
+  if(scored[0].s===0){
+    if(/carne|bistecc|manzo|agnell|cinghial|tagliata|brasato|grigli/.test(q)){var r=route(["Barolo","Brunello"]);if(r)return r}
+    var r=route(["Chianti","Franciacorta Brut"]);if(r)return r;
+  }
+  return [scored[0].w,scored[1].w];
+}
+function matchPct(p){var a=p.reduce(function(x,y){return x+y},0)/p.length;return Math.min(99,Math.max(60,Math.round(a/5*100)))}
+function ballColors(){return ['#E8C87A','#D9B968','#C09040','#A87828','#906018']}
+
+function render(wines){
+  var L=LANGUI[curLang],out=document.getElementById('dout');out.innerHTML="";
+  var grid=document.createElement('div');grid.className='results';
+  wines.forEach(function(w,wi){
+    var c=document.createElement('div');c.className='wcard';c.style.animationDelay=(wi*0.12)+'s';
+    var prof='<div class="prof">';
+    LABS.forEach(function(lab,i){
+      var balls='';for(var b=1;b<=5;b++){balls+='<div class="ball" data-w="'+wi+'" data-i="'+i+'" data-b="'+b+'"></div>'}
+      prof+='<div class="prow"><span class="pn">'+lab+'</span><div class="balls">'+balls+'</div></div>';
+    });
+    prof+='</div>';
+    c.innerHTML='<span class="wmatch">'+matchPct(w.p)+'% '+L.match+'</span><h3>'+w.n.split(" DOC")[0]+'</h3><div class="wsub">'+w.s+'</div>'+
+      '<span class="wlbl">'+L.why+'</span><div class="wtxt">'+w.w+'</div>'+
+      '<span class="wlbl">'+L.glass+'</span><div class="wtxt">'+w.se+'</div>'+prof+
+      '<div class="wtip">'+w.t+'</div><div class="wprice">'+w.pr+' '+L.bottle+'</div>';
+    grid.appendChild(c);
+  });
+  out.appendChild(grid);
+  var d=document.createElement('div');d.className='disc';d.textContent="Demo con selezione rappresentativa di 30 vini italiani. La versione live di AI Som lavora sul tuo catalogo reale, aggiornato in tempo reale dal tuo pannello admin.";out.appendChild(d);
+  // anima palline
+  var cols=ballColors();
+  wines.forEach(function(w,wi){
+    LABS.forEach(function(lab,i){
+      var val=w.p[i];
+      for(var b=1;b<=val;b++){(function(wi,i,b){setTimeout(function(){
+        var el=document.querySelector('.ball[data-w="'+wi+'"][data-i="'+i+'"][data-b="'+b+'"]');
+        if(el){el.style.background=cols[b-1];el.style.borderColor=cols[b-1]}
+      },(i*5+b)*25+wi*120)})(wi,i,b)}
+    });
+  });
+}
+function run(){
+  var L=LANGUI[curLang],input=document.getElementById('dinput').value;
+  var out=document.getElementById('dout');
+  out.innerHTML='<div class="loader"><div class="dots"><span></span><span></span><span></span></div><div id="lt" class="muted"></div></div>';
+  var lt=document.getElementById('lt'),i=0;lt.textContent=L.load[0];
+  var iv=setInterval(function(){i=(i+1)%3;lt.textContent=L.load[i]},600);
+  setTimeout(function(){clearInterval(iv);render(findBestWines(input))},2200);
+}
+document.getElementById('dbtn').onclick=run;
+document.getElementById('dinput').addEventListener('keydown',function(e){if(e.key==='Enter')run()});
+
+buildLangMenu();buildChips();applyLang();
+</script>
 </body>
 </html>
