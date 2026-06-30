@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Som · Il Sommelier Digitale per Ristoranti ed Enoteche</title>
-<meta name="description" content="AI Som — Il sommelier digitale per ristoranti e enoteche. Aumenta le vendite di vino del 46%, supporta 8 lingue, attivo 24/7. Prova la demo gratuita.">
-<meta property="og:title" content="AI Som — Il Sommelier Digitale">
-<meta property="og:description" content="Il vino vale il 21% del tuo fatturato. AI Som ti aiuta a venderlo meglio — in 8 lingue, 24/7.">
+<meta name="description" content="AI Som — il sommelier digitale nel menù del tuo locale: il vino giusto per ogni cliente in 3 secondi, in 8 lingue. Vendi più vino senza assumere un sommelier. Prova la demo gratuita.">
+<meta property="og:title" content="AI Som — Il vino giusto, per ogni cliente, in 3 secondi">
+<meta property="og:description" content="Il sommelier digitale nel menù del tuo locale: abbina il vino a ogni piatto, lo spiega e lo serve — all'istante, in 8 lingue. Vendi più vino, 24/7.">
 <meta property="og:url" content="https://ai-som.it">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F0F0F'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23D4A85A' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
@@ -52,12 +52,15 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 main{padding-top:66px}
 
 /* HERO */
-.hero{padding:64px 0 40px;text-align:center}
+.hero{padding:78px 0 40px;text-align:center;position:relative}
+.hero:before{content:'';position:absolute;top:-70px;left:50%;transform:translateX(-50%);width:760px;max-width:92vw;height:440px;background:radial-gradient(ellipse at center,rgba(212,168,90,.16),transparent 70%);pointer-events:none;z-index:-1}
+.trustline{display:flex;gap:10px 22px;justify-content:center;flex-wrap:wrap;margin:0 auto 28px;font-size:13.5px;color:var(--text2);max-width:660px}
+.trustline b{color:var(--copper3);font-weight:600}
 .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,168,90,.1);border:1px solid var(--border2);color:var(--copper3);font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;margin-bottom:24px}
 .dot{width:9px;height:9px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.6)}70%{box-shadow:0 0 0 9px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
 .hero h1{font-size:clamp(34px,6vw,64px);max-width:920px;margin:0 auto 20px}
-.hero .sub{font-size:clamp(16px,2.4vw,21px);color:var(--text);max-width:680px;margin:0 auto 30px}
+.hero .sub{font-size:clamp(16px,2.4vw,21px);color:var(--text);max-width:680px;margin:0 auto 16px}
 .hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .proof{margin-top:26px;color:var(--text2);font-size:14px}
 .heroimg{margin:50px auto 0;max-width:900px}
@@ -206,8 +209,13 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
 <!-- HERO -->
 <header class="hero"><div class="wrap">
   <div class="badge"><span class="dot"></span> Prezzo fondatore · Solo per i primi 30 locali — ne restano 14</div>
-  <h1>Il vino vale il <span class="cop">21%</span> del tuo fatturato.<br>Stai servendo ogni tavolo al massimo?</h1>
-  <p class="sub">AI Som è il sommelier digitale sempre disponibile — in 8 lingue, 24 ore su 24, anche quando la sala è piena.</p>
+  <h1>Il vino giusto, per ogni cliente,<br><span class="cop">in 3 secondi</span>.</h1>
+  <p class="sub">AI Som è il sommelier digitale nel menù del tuo locale: abbina il vino a ogni piatto, lo spiega e lo serve al tavolo — all'istante, in 8 lingue.</p>
+  <div class="trustline">
+    <span>⚡ Risposta <b>immediata</b></span>
+    <span>🍷 Su <b>conoscenza sommelier reale</b>, non inventata</span>
+    <span>🌍 <b>8 lingue</b></span>
+  </div>
   <div class="cta">
     <a href="#demo" class="btn">Prova la demo dal vivo</a>
     <a href="#contatti" class="btn btn-ghost">Prenota una call gratuita</a>
