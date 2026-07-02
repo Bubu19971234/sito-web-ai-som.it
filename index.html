@@ -201,6 +201,39 @@ form input:focus,form select:focus,form textarea:focus{border-color:var(--copper
 @keyframes appscroll{0%,6%{transform:translateY(0)}50%,56%{transform:translateY(calc(-100% + 454px))}100%{transform:translateY(0)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
 
+/* ===== SCROLLYTELLING (iPhone che si blocca e scorre) ===== */
+.story{position:relative;height:340vh}
+.storysticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
+.storysticky:before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;max-width:90vw;height:520px;background:radial-gradient(ellipse at center,rgba(212,168,90,.13),transparent 70%);z-index:-1;pointer-events:none}
+.storyinner{max-width:1040px;margin:0 auto;padding:0 22px;display:grid;grid-template-columns:1fr 300px;gap:50px;align-items:center;width:100%}
+@media(max-width:840px){.storyinner{grid-template-columns:1fr;gap:24px;text-align:center}.storytext{order:2}.storyphone{order:1}}
+.storyh{font-size:clamp(26px,4.2vw,44px);margin:10px 0 12px;min-height:1.15em;transition:opacity .3s}
+.storyp{font-size:17px;transition:opacity .3s}
+.storyphone{display:flex;justify-content:center}
+.phone.big{width:284px;height:576px;animation:none}
+.storyscroll{width:100%;display:block;will-change:transform}
+.langpill{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:rgba(10,10,10,.72);backdrop-filter:blur(6px);border:1px solid var(--border2);color:var(--copper3);font-size:13px;padding:6px 13px;border-radius:999px;z-index:4;white-space:nowrap}
+.storydots{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.sd{width:8px;height:8px;border-radius:50%;background:var(--border);transition:.35s}
+.sd.on{background:var(--copper);width:22px;border-radius:6px}
+.appui{background:var(--dark);color:#EDE6DD;padding:16px 13px 34px;text-align:left}
+.appbar{display:flex;justify-content:space-between;align-items:center;font-family:'DM Serif Display',serif;font-size:15px;padding:4px 2px 14px}
+.applang{font-size:11px;background:var(--dark3);border:1px solid var(--border);border-radius:999px;padding:3px 9px;color:var(--text);font-family:Inter}
+.appq{font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:1.5px;margin:2px 0 9px}
+.appchips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:13px}
+.appchip{background:rgba(212,168,90,.14);border:1px solid var(--border2);color:var(--copper3);font-size:11px;padding:5px 9px;border-radius:999px}
+.appbtn{background:var(--copper);color:#1A1208;font-weight:700;text-align:center;border-radius:999px;padding:10px;font-size:12px;margin-bottom:16px}
+.apwine{background:var(--dark2);border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:10px}
+.apwtop{display:flex;justify-content:space-between;align-items:flex-start;gap:6px}
+.apwn{font-family:'DM Serif Display',serif;font-size:14px;line-height:1.1}
+.apwm{background:rgba(212,168,90,.16);color:var(--copper3);font-weight:700;font-size:10px;padding:2px 7px;border-radius:999px;white-space:nowrap}
+.apwsub{font-size:10px;color:var(--text2);margin:3px 0 6px}
+.apwlbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--copper);display:block;margin:6px 0 2px}
+.apwtxt{font-size:11px;color:var(--text);line-height:1.45}
+.apmood{font-size:11.5px;font-style:italic;color:var(--text2);margin-bottom:14px;line-height:1.4}
+.apwprice{font-family:'DM Serif Display',serif;color:#fff;font-size:14px;margin-top:9px}
+@media(prefers-reduced-motion:reduce){.story{height:auto}.storysticky{position:static;height:auto;padding:70px 0}}
+
 /* 3 ATTORI */
 .actor{background:var(--dark2);border:1px solid var(--border);border-radius:18px;padding:26px;transition:.3s cubic-bezier(.25,.46,.45,.94)}
 .actor:hover{border-color:var(--border2);transform:translateY(-4px)}
@@ -263,6 +296,34 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
     <img src="hero-dashboard.png" alt="Dashboard AI Som con report e marginalità del vino" onerror="this.style.display='none'">
   </div>
 </div></header>
+
+<!-- SCROLLYTELLING -->
+<section class="story" id="story">
+  <div class="storysticky">
+    <div class="storyinner">
+      <div class="storytext">
+        <div class="eyebrow">Guardalo in azione</div>
+        <h2 class="storyh">Il cliente sceglie i piatti dal menù</h2>
+        <p class="storyp muted">Inquadra il QR al tavolo — nessuna app da scaricare.</p>
+      </div>
+      <div class="storyphone">
+        <div class="phone big"><div class="phonescreen"><div class="storyscroll appui">
+          <div class="appbar"><span>🍷 I'Marinero</span><span class="applang">🇮🇹 ▾</span></div>
+          <div class="appq">Cosa avete ordinato?</div>
+          <div class="appchips"><span class="appchip">Spaghetti alle vongole</span><span class="appchip">Frittura di paranza</span><span class="appchip">+ aggiungi</span></div>
+          <div class="appbtn">🍷 Consiglia il vino</div>
+          <div class="apmood">Per pesce e fritto: punta su freschezza, sapidità e bollicine. Ecco le 3 scelte.</div>
+          <div class="apwine"><div class="apwtop"><div class="apwn">Vermentino Colli di Luni</div><span class="apwm">94%</span></div><div class="apwsub">Liguria · Vermentino · 30€</div><span class="apwlbl">Perché funziona</span><div class="apwtxt">Sapidità marina che richiama lo iodio delle vongole, senza coprirle.</div><span class="apwlbl">Nel bicchiere</span><div class="apwtxt">Agrume, pesca bianca e una nota salina che invita al sorso.</div><div class="apwprice">30€</div></div>
+          <div class="apwine"><div class="apwtop"><div class="apwn">Sauvignon Friuli</div><span class="apwm">91%</span></div><div class="apwsub">Friuli · Sauvignon · 27€</div><span class="apwlbl">Perché funziona</span><div class="apwtxt">Acidità nervosa che sgrassa il fritto e ravviva la sapidità.</div><span class="apwlbl">Nel bicchiere</span><div class="apwtxt">Erba fresca, agrumi e fiori bianchi. Teso e verticale.</div><div class="apwprice">27€</div></div>
+          <div class="apwine"><div class="apwtop"><div class="apwn">Franciacorta Brut</div><span class="apwm">89%</span></div><div class="apwsub">Lombardia · Chardonnay · 45€</div><span class="apwlbl">Perché funziona</span><div class="apwtxt">Le bollicine puliscono il palato tra un boccone e l'altro.</div><span class="apwlbl">Nel bicchiere</span><div class="apwtxt">Crosta di pane, mela golden e perlage fine.</div><div class="apwprice">45€</div></div>
+        </div></div>
+          <div class="langpill">🇮🇹 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇷🇺 🇨🇳 🇦🇪</div>
+        </div>
+      </div>
+    </div>
+    <div class="storydots"><span class="sd on"></span><span class="sd"></span><span class="sd"></span></div>
+  </div>
+</section>
 
 <!-- PROBLEMA -->
 <section id="problema"><div class="wrap">
@@ -623,6 +684,30 @@ document.getElementById('dbtn').onclick=run;
 document.getElementById('dinput').addEventListener('keydown',function(e){if(e.key==='Enter')run()});
 
 buildLangMenu();buildChips();applyLang();
+
+/* ===== SCROLLYTELLING iPhone ===== */
+(function(){
+  var story=document.getElementById('story'); if(!story) return;
+  var scr=story.querySelector('.storyscroll'), screenEl=story.querySelector('.phonescreen');
+  var hEl=story.querySelector('.storyh'), pEl=story.querySelector('.storyp'), dots=story.querySelectorAll('.sd');
+  var STAGES=[
+    {h:"Il cliente sceglie i piatti dal menù",p:"Inquadra il QR al tavolo — nessuna app da scaricare."},
+    {h:"L'AI abbina il vino in 3 secondi",p:"Tre proposte reali, con il perché di ogni abbinamento."},
+    {h:"Nella sua lingua, per ogni cliente",p:"Il turista legge e ordina in 8 lingue. Tu vendi più vino."}
+  ];
+  var cur=-1;
+  function tick(){
+    var total=story.offsetHeight-window.innerHeight; if(total<=0)return;
+    var prog=Math.min(1,Math.max(0,-story.getBoundingClientRect().top/total));
+    var range=(scr.clientHeight||0)-(screenEl.clientHeight||480);
+    if(range>0) scr.style.transform='translateY('+(-prog*range).toFixed(1)+'px)';
+    var s=Math.min(STAGES.length-1,Math.floor(prog*STAGES.length));
+    if(s!==cur){cur=s;hEl.style.opacity=0;pEl.style.opacity=0;setTimeout(function(){hEl.textContent=STAGES[s].h;pEl.textContent=STAGES[s].p;hEl.style.opacity=1;pEl.style.opacity=1},180);dots.forEach(function(d,i){d.classList.toggle('on',i===s)})}
+  }
+  var ticking=false;
+  window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){tick();ticking=false});ticking=true}},{passive:true});
+  window.addEventListener('resize',tick); window.addEventListener('load',tick); setTimeout(tick,300); tick();
+})();
 
 /* ===== ANIMAZIONI SCROLL ===== */
 (function(){
