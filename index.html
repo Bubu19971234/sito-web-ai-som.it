@@ -199,9 +199,8 @@ form input:focus,form select:focus,form textarea:focus{border-color:var(--copper
 .phone:after{content:'';position:absolute;left:-3px;top:86px;width:3px;height:28px;background:#3c3c3c;border-radius:2px 0 0 2px;box-shadow:0 44px 0 0 #3c3c3c}
 .phone .pwrbtn{position:absolute;right:-3px;top:112px;width:3px;height:62px;background:#3c3c3c;border-radius:0 2px 2px 0}
 .phonescreen{position:absolute;inset:0;border-radius:31px;overflow:hidden;background:var(--dark)}
-.phonescroll{width:100%;display:block;animation:appscroll 16s ease-in-out infinite}
-video.phonescroll{width:100%;height:100%;object-fit:cover;animation:none}
-@keyframes appscroll{0%,6%{transform:translateY(0)}50%,56%{transform:translateY(calc(-100% + 454px))}100%{transform:translateY(0)}}
+.phonescroll{width:100%;display:block;animation:appscroll 18s ease-in-out infinite}
+@keyframes appscroll{0%,8%{transform:translateY(0)}50%,58%{transform:translateY(-42%)}100%{transform:translateY(0)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
 
 /* ===== SCROLLYTELLING (iPhone che si blocca e scorre) ===== */
@@ -399,7 +398,16 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
     </div>
   </div>
   <div class="phonewrap">
-    <div class="phone"><span class="pwrbtn"></span><div class="phonescreen"><video class="phonescroll" src="menu-scroll.mp4" autoplay loop muted playsinline onerror="this.closest('.phonewrap').style.display='none'"></video></div></div>
+    <div class="phone"><span class="pwrbtn"></span><div class="phonescreen"><div class="phonescroll appui">
+      <div class="appbar"><span>🍷 AI Som</span><span class="applang">🇮🇹 ▾</span></div>
+      <div class="appq">Cosa avete ordinato?</div>
+      <div class="appchips"><span class="appchip">Tagliata di manzo</span><span class="appchip">Risotto ai funghi</span><span class="appchip">+ aggiungi</span></div>
+      <div class="appbtn">🍷 Consiglia il vino</div>
+      <div class="apmood">Per carne e funghi: punta su struttura, morbidezza e note terrose. Ecco le 3 scelte.</div>
+      <div class="apwine"><div class="apwtop"><div class="apwn">Barbera d'Asti</div><span class="apwm">93%</span></div><div class="apwsub">Piemonte · Barbera · 26€</div><span class="apwlbl">Perché funziona</span><div class="apwtxt">Acidità viva che sgrassa la carne e regge le note terrose dei funghi.</div><span class="apwlbl">Nel bicchiere</span><div class="apwtxt">Ciliegia matura, spezie dolci e un finale sapido.</div><div class="apwprice">26€</div></div>
+      <div class="apwine"><div class="apwtop"><div class="apwn">Chianti Classico</div><span class="apwm">90%</span></div><div class="apwsub">Toscana · Sangiovese · 32€</div><span class="apwlbl">Perché funziona</span><div class="apwtxt">Tannino presente ma equilibrato, accompagna la tagliata senza coprirla.</div><span class="apwlbl">Nel bicchiere</span><div class="apwtxt">Frutti rossi, viola e un tocco di erbe mediterranee.</div><div class="apwprice">32€</div></div>
+      <div class="apwine"><div class="apwtop"><div class="apwn">Nebbiolo Langhe</div><span class="apwm">88%</span></div><div class="apwsub">Piemonte · Nebbiolo · 29€</div><span class="apwlbl">Perché funziona</span><div class="apwtxt">Eleganza e note terrose in sintonia con il risotto ai funghi.</div><span class="apwlbl">Nel bicchiere</span><div class="apwtxt">Rosa appassita, sottobosco e tannino setoso.</div><div class="apwprice">29€</div></div>
+    </div></div></div>
   </div>
 </div></section>
 
