@@ -198,6 +198,7 @@ form input:focus,form select:focus,form textarea:focus{border-color:var(--copper
 .phone:before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:92px;height:19px;background:#1b1b1b;border-radius:0 0 13px 13px;z-index:3}
 .phonescreen{position:absolute;inset:0;border-radius:31px;overflow:hidden;background:var(--dark)}
 .phonescroll{width:100%;display:block;animation:appscroll 16s ease-in-out infinite}
+video.phonescroll{width:100%;height:100%;object-fit:cover;animation:none}
 @keyframes appscroll{0%,6%{transform:translateY(0)}50%,56%{transform:translateY(calc(-100% + 454px))}100%{transform:translateY(0)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
 
@@ -266,13 +267,13 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
 <nav><div class="wrap">
   <div class="logo">AI <span class="cop">Som</span></div>
   <div class="nlinks">
-    <a href="#problema">Perché</a><a href="#demo">Demo</a><a href="#scenari">Scenari</a><a href="#faq">FAQ</a>
+    <a href="#problema">Perché</a><a href="#demo">Demo</a><a href="#ordini">Gestione ordini</a><a href="#scenari">Scenari</a><a href="#faq">FAQ</a>
     <a href="https://cal.eu/ai-som" target="_blank" rel="noopener" class="btn" style="padding:9px 18px">Prenota una call</a>
   </div>
   <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
 </div></nav>
 <div class="drawer" id="drawer">
-  <a href="#problema">Perché AI Som</a><a href="#demo">Prova la demo</a><a href="#scenari">Scenari d'uso</a><a href="#faq">FAQ</a><a href="https://cal.eu/ai-som" target="_blank" rel="noopener" class="cop">Prenota una call →</a>
+  <a href="#problema">Perché AI Som</a><a href="#demo">Prova la demo</a><a href="#ordini">Gestione ordini</a><a href="#scenari">Scenari d'uso</a><a href="#faq">FAQ</a><a href="https://cal.eu/ai-som" target="_blank" rel="noopener" class="cop">Prenota una call →</a>
 </div>
 
 <main>
@@ -396,7 +397,31 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
     </div>
   </div>
   <div class="phonewrap">
-    <div class="phone"><div class="phonescreen"><img class="phonescroll" src="sommelier.png" alt="AI Som in uso sul telefono" onerror="this.closest('.phonewrap').style.display='none'"></div></div>
+    <div class="phone"><div class="phonescreen"><video class="phonescroll" src="menu-scroll.mp4" autoplay loop muted playsinline onerror="this.closest('.phonewrap').style.display='none'"></video></div></div>
+  </div>
+</div></section>
+
+<!-- GESTIONE ORDINI -->
+<section id="ordini" style="background:#0B0B0B;border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="wrap">
+  <div class="shead"><div class="eyebrow">Gestione ordini</div><h2>Non solo il vino: gestisci tutta la sala da un telefono</h2><p>Nessun palmare da comprare, configurare o rompere. Basta lo smartphone che il tuo staff ha già in tasca — e costa meno di tanti sistemi di comande tradizionali.</p></div>
+  <div class="g4">
+    <div class="card"><div class="ico">📱</div><h3>Zero palmari</h3><p>Funziona su qualsiasi smartphone. Niente hardware dedicato da acquistare, aggiornare o sostituire quando si rompe.</p></div>
+    <div class="card"><div class="ico">✅</div><h3>Accettazione ordine</h3><p>La comanda arriva in cucina e al bar con un tocco: si accetta, si prepara, si serve. Niente carta, niente fraintendimenti tra sala e cucina.</p></div>
+    <div class="card"><div class="ico">🙋</div><h3>Self order del cliente</h3><p>Il cliente ordina piatti e vino da solo, dal tavolo, quando vuole lui — senza aspettare che qualcuno passi a prendere l'ordine.</p></div>
+    <div class="card"><div class="ico">🧑‍🍳</div><h3>Ordine da cameriere</h3><p>Il cameriere apre il tavolo e prende la comanda: il commensale sa già cosa mangiare e bere grazie al consiglio dell'AI, si serve più veloce.</p></div>
+  </div>
+  <div class="solbox">
+    <h3>Controlli i costi di sala, non solo il servizio</h3>
+    <ul>
+      <li>Prendere le comande richiede meno tempo: puoi ridurre i costi di personale nelle ore di punta, o far rendere di più lo stesso staff</li>
+      <li>Vedi la marginalità di ogni piatto e di ogni vino, non solo quanto venduto</li>
+      <li>Decidi cosa spingere in base al margine reale, non a sensazione</li>
+      <li>Un sistema completo — sommelier, comande e report — a un costo più basso di molte soluzioni di sola gestione ordini sul mercato</li>
+    </ul>
+  </div>
+  <div class="card num" style="margin-top:28px;max-width:460px;margin-left:auto;margin-right:auto;text-align:center">
+    <div class="big">+4% / +25%</div><div class="lab">di fatturato nei locali pilota</div>
+    <p>Nei prototipi testati per zona, i locali che hanno attivato la gestione ordini di AI Som hanno registrato aumenti di fatturato dal 4% al 25%, a seconda dell'area.</p>
   </div>
 </div></section>
 
