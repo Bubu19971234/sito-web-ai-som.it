@@ -136,6 +136,13 @@ main{padding-top:66px}
 @media(max-width:820px){.shots{grid-template-columns:1fr}}
 .shot img{width:100%;border-radius:14px;border:1px solid var(--border);display:block}
 .shot p{font-size:13px;color:var(--text2);margin-top:10px;text-align:center}
+/* righe feature con screenshot reali (reveal allo scorrimento) */
+.featrow{display:grid;grid-template-columns:1fr 1.35fr;gap:38px;align-items:center;margin-top:44px}
+.featrow.rev .feattext{order:2}.featrow.rev .featimg{order:1}
+.feattext h3{font-size:26px;margin:10px 0 12px}
+.feattext p{color:var(--text);font-size:15.5px;line-height:1.65}
+.featimg img{width:100%;border-radius:16px;border:1px solid var(--border);box-shadow:0 30px 70px rgba(0,0,0,.5);display:block}
+@media(max-width:820px){.featrow{grid-template-columns:1fr;gap:18px}.featrow.rev .feattext{order:1}.featrow.rev .featimg{order:2}}
 
 /* STEPS */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -374,13 +381,54 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
   </div>
 </div></section>
 
-<!-- DENTRO AI SOM (immagini) -->
-<section><div class="wrap">
-  <div class="shead"><div class="eyebrow">Dentro AI Som</div><h2>Semplice per il cliente, potente per te</h2></div>
-  <div class="shots">
-    <div class="shot"><img src="sommelier.png" alt="Sommelier AI: scelta piatti e consiglio vini" onerror="this.parentElement.style.display='none'"><p>Il cliente sceglie i piatti, l'AI consiglia il vino</p></div>
-    <div class="shot"><img src="hero-dashboard.png" alt="Dashboard con comande e report" onerror="this.parentElement.style.display='none'"><p>Comande in tempo reale + analisi vendite</p></div>
-    <div class="shot"><img src="report-piatti.png" alt="Report piatti più ordinati" onerror="this.parentElement.style.display='none'"><p>Report su piatti, marginalità e tendenze</p></div>
+<!-- DENTRO AI SOM (screenshot reali, reveal allo scorrimento) -->
+<section id="dentro"><div class="wrap">
+  <div class="shead"><div class="eyebrow">Dentro AI Som</div><h2>Semplice per il cliente, potente per te</h2><p>La dashboard vera, non un mockup: quello che vedi è quello che usi.</p></div>
+
+  <div class="featrow">
+    <div class="feattext">
+      <div class="eyebrow">Gestione sala</div>
+      <h3>Comande live, operatori e chiusura servizio</h3>
+      <p>Ogni tavolo in tempo reale: chi ha ordinato, chi serve (ogni cameriere ha il suo nome), conferma con un tocco, stampa e chiudi il servizio a fine serata. Zero palmari: basta lo smartphone.</p>
+    </div>
+    <div class="featimg"><img src="shot-dashboard.png" alt="Dashboard AI Som: comande in arrivo con operatori e chiusura servizio" onerror="this.closest('.featrow').style.display='none'"></div>
+  </div>
+
+  <div class="featrow rev">
+    <div class="feattext">
+      <div class="eyebrow">Menù digitale</div>
+      <h3>Il tuo menù caricato dall'AI, in 10 lingue</h3>
+      <p>Incolli il testo, carichi un PDF o un link: l'AI struttura piatti, prezzi e allergeni e traduce tutto in 10 lingue. Il turista ordina da solo, nella sua lingua.</p>
+    </div>
+    <div class="featimg"><img src="shot-menu.png" alt="Import del menù con AI da PDF, testo o link" onerror="this.closest('.featrow').style.display='none'"></div>
+  </div>
+
+  <div class="featrow">
+    <div class="feattext">
+      <div class="eyebrow">Margini</div>
+      <h3>Quanto guadagni davvero, piatto per piatto</h3>
+      <p>Inserisci il costo di acquisto di ogni piatto e bottiglia — puoi cambiarlo quando vuoi — e AI Som calcola il margine reale sulle vendite: per mese, per anno, con la classifica di ciò che rende di più. Decidi cosa spingere coi dati, non a sensazione.</p>
+    </div>
+    <div class="featimg"><img src="shot-margini.png" alt="Dashboard margini: incasso, costi di acquisto e margine per periodo" onerror="this.closest('.featrow').style.display='none'"></div>
+  </div>
+
+  <div class="featrow rev">
+    <div class="feattext">
+      <div class="eyebrow">Modalità Sala</div>
+      <h3>Il palmare? È il telefono che hai già</h3>
+      <p>I camerieri aprono i tavoli, prendono le comande e confermano dal proprio smartphone. Comanda unica per tavolo, niente doppioni, niente hardware da comprare.</p>
+    </div>
+    <div class="featimg"><img src="shot-sala.png" alt="Modalità Sala: comande dal telefono del cameriere" onerror="this.closest('.featrow').style.display='none'"></div>
+  </div>
+
+  <div class="solbox">
+    <h3>💶 E la cassa? Parla direttamente con l'Agenzia delle Entrate.</h3>
+    <ul>
+      <li>Dalla comanda allo scontrino in un tocco: rivedi l'ordine, applichi lo sconto (percentuale o importo), emetti</li>
+      <li>Configurabile per trasmettere i corrispettivi direttamente all'Agenzia delle Entrate: <b>il registratore di cassa non è più un obbligo</b></li>
+      <li>Scontrino con il tuo logo e la tua intestazione: stampalo o invialo via WhatsApp ed email</li>
+      <li>Costa meno di un gestionale di cassa tradizionale — e dentro c'è anche il sommelier</li>
+    </ul>
   </div>
 </div></section>
 
@@ -1026,7 +1074,7 @@ buildLangMenu();buildChips();applyLang();
 
 /* ===== ANIMAZIONI SCROLL ===== */
 (function(){
-  var els=Array.prototype.slice.call(document.querySelectorAll('.card,.step,.shead,.solbox,.tabpane,.quote,.num,.actor,.offerc,.shot,.phonewrap,.flagb'));
+  var els=Array.prototype.slice.call(document.querySelectorAll('.card,.step,.shead,.solbox,.tabpane,.quote,.num,.actor,.offerc,.shot,.featrow,.phonewrap,.flagb'));
   els.forEach(function(e){e.classList.add('reveal')});
   if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
   var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
