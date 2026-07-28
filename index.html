@@ -266,6 +266,17 @@ form input:focus,form select:focus,form textarea:focus{border-color:var(--copper
 .offerc p{color:var(--text);font-size:15px}
 .ribbon{display:inline-block;background:var(--copper);color:#fff;font-weight:700;font-size:12px;padding:4px 12px;border-radius:999px}
 .ribbon.ghost{background:transparent;border:1px solid var(--border2);color:var(--copper3)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+@media(max-width:900px){.plans{grid-template-columns:1fr}}
+.plan{background:var(--dark2);border:1px solid var(--border);border-radius:20px;padding:30px;display:flex;flex-direction:column}
+.plan.hi{border-color:var(--copper);background:linear-gradient(135deg,#1d1214,#141010)}
+.plan h3{font-size:20px;margin:0 0 6px}
+.plan .price{font-size:34px;font-weight:800;color:#fff;font-family:'Plus Jakarta Sans';margin:4px 0}
+.plan .price span{font-size:15px;font-weight:500;color:var(--text)}
+.plan ul{list-style:none;margin:16px 0 24px;padding:0;display:flex;flex-direction:column;gap:11px}
+.plan ul li{color:var(--text);font-size:15px;padding-left:24px;position:relative}
+.plan ul li:before{content:"✓";position:absolute;left:0;color:var(--copper);font-weight:800}
+.plan .btn{margin-top:auto;text-align:center;width:100%}
 
 footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font-size:14px;text-align:center}
 </style>
@@ -275,13 +286,13 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
 <nav><div class="wrap">
   <div class="logo">AI <span class="cop">Som</span></div>
   <div class="nlinks">
-    <a href="#problema">Perché</a><a href="#demo">Demo</a><a href="#ordini">Gestione ordini</a><a href="#scenari">Scenari</a><a href="#faq">FAQ</a>
+    <a href="#problema">Perché</a><a href="#demo">Demo</a><a href="#ordini">Gestione ordini</a><a href="#scenari">Scenari</a><a href="#prezzi">Prezzi</a><a href="#faq">FAQ</a>
     <a href="https://cal.eu/ai-som" target="_blank" rel="noopener" class="btn" style="padding:9px 18px">Prenota una call</a>
   </div>
   <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
 </div></nav>
 <div class="drawer" id="drawer">
-  <a href="#problema">Perché AI Som</a><a href="#demo">Prova la demo</a><a href="#ordini">Gestione ordini</a><a href="#scenari">Scenari d'uso</a><a href="#faq">FAQ</a><a href="https://cal.eu/ai-som" target="_blank" rel="noopener" class="cop">Prenota una call →</a>
+  <a href="#problema">Perché AI Som</a><a href="#demo">Prova la demo</a><a href="#ordini">Gestione ordini</a><a href="#scenari">Scenari d'uso</a><a href="#prezzi">Prezzi</a><a href="#faq">FAQ</a><a href="https://cal.eu/ai-som" target="_blank" rel="noopener" class="cop">Prenota una call →</a>
 </div>
 
 <main>
@@ -483,17 +494,40 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
   </div>
 </div></section>
 
-<!-- FACILE / +90 -->
-<section style="background:#0B0B0B;border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="wrap">
-  <div class="shead"><div class="eyebrow">Facile da attivare</div><h2>Lo fai da solo in pochi minuti — o lo rendiamo su misura</h2></div>
-  <div class="offer">
-    <div class="offerc"><span class="ribbon ghost">Self-service</span><h3>Configurazione guidata</h3><p>Carichi menù e carta (anche da un PDF), l'AI struttura tutto e genera il QR. Una procedura passo-passo: nessuna competenza tecnica, sei online in poche ore.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
-        <a href="https://ai-som-saas.vercel.app/attiva?piano=base" class="btn" style="padding:11px 18px;font-size:14px">Attiva BASE · 90€ + 19,90/mese</a>
-        <a href="https://ai-som-saas.vercel.app/attiva?piano=premium" class="btn btn-ghost" style="padding:11px 18px;font-size:14px">PREMIUM · 300€ + 30/mese</a>
-      </div>
+<!-- PREZZI -->
+<section id="prezzi" style="background:#0B0B0B;border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="wrap">
+  <div class="shead"><div class="eyebrow">Piani e prezzi</div><h2>Scegli il piano adatto alla tua attività</h2><p>Canone annuale. Ti mostriamo tutto dal vivo in una call, senza impegno.</p></div>
+  <div class="plans">
+    <div class="plan">
+      <h3>Solo menù + AI</h3>
+      <div class="price">300 €<span> / anno</span></div>
+      <ul>
+        <li>Menù digitale multilingua via QR</li>
+        <li>Sommelier AI: consiglia il vino su ogni piatto</li>
+        <li>Nessuna app da scaricare per il cliente</li>
+      </ul>
+      <a href="#contatti" class="btn btn-ghost">Richiedi informazioni →</a>
     </div>
-    <div class="offerc hi"><span class="ribbon">+90€ una tantum</span><h3>Il tuo menù QR, reso interattivo</h3><p>Hai già un menù QR brandizzato o fatto su misura? Lo trasformiamo nel sommelier interattivo di AI Som — il tuo design, la nostra intelligenza dentro. Un servizio che oggi <b>non esiste sul mercato</b>.</p></div>
+    <div class="plan hi">
+      <h3>Menù AI + Ordini e palmari</h3>
+      <div class="price">600 €<span> / anno</span></div>
+      <ul>
+        <li>Tutto del piano <b>Solo menù + AI</b></li>
+        <li>Gestione ordini e comande digitali</li>
+        <li>Palmari per la presa comande al tavolo</li>
+      </ul>
+      <a href="#contatti" class="btn">Richiedi informazioni →</a>
+    </div>
+    <div class="plan">
+      <h3>Con cassa integrata e POS</h3>
+      <div class="price">900 €<span> / anno</span></div>
+      <ul>
+        <li>Tutto del piano <b>Ordini e palmari</b></li>
+        <li>Cassa integrata</li>
+        <li>POS per i pagamenti</li>
+      </ul>
+      <a href="#contatti" class="btn btn-ghost">Richiedi informazioni →</a>
+    </div>
   </div>
 </div></section>
 
@@ -524,7 +558,7 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
 
 <!-- PRODOTTI -->
 <section style="background:#0B0B0B;border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="wrap">
-  <div class="shead"><div class="eyebrow">La gamma</div><h2>Una soluzione per ogni attività</h2><p>Preventivo su misura — nessun prezzo standard.</p></div>
+  <div class="shead"><div class="eyebrow">La gamma</div><h2>Una soluzione per ogni attività</h2><p>Dal sommelier digitale via QR all'e-commerce e al white label.</p></div>
   <div class="g4">
     <div class="card"><div class="ico">🍽️</div><h3>AI Som</h3><p>Il sommelier digitale via QR per ristoranti ed enoteche. Menù, comande, report.</p></div>
     <div class="card"><div class="ico">🛒</div><h3>AI Som per siti web</h3><p>Widget per e-commerce di vino: consiglia e converte direttamente nello shop.</p></div>
@@ -567,7 +601,7 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
       <ul>
         <li>Demo live con i tuoi vini reali</li>
         <li>Analisi del tuo contesto specifico</li>
-        <li>Preventivo su misura, senza prezzi standard</li>
+        <li>Ti aiutiamo a scegliere il piano adatto</li>
         <li>Risposta garantita entro 24 ore</li>
         <li>Nessun obbligo di acquisto</li>
       </ul>
