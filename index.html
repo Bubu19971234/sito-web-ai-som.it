@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Som · Il Sommelier Digitale per Ristoranti ed Enoteche</title>
-<meta name="description" content="AI Som — il sommelier digitale nel menù del tuo locale: il vino giusto per ogni cliente in 3 secondi, in 8 lingue. Vendi più vino senza assumere un sommelier. Prova la demo gratuita.">
+<title>AI Som · Il Sommelier Digitale e la Marginalità per Ristoranti</title>
+<meta name="description" content="AI Som — il sommelier digitale nel menù del tuo locale: il vino giusto per ogni cliente in 3 secondi, in 8 lingue. E con AI Som Margini il prezzo giusto di ogni piatto, calcolato sui tuoi costi veri. Prova le demo.">
 <meta property="og:title" content="AI Som — Il vino giusto, per ogni cliente, in 3 secondi">
 <meta property="og:description" content="Il sommelier digitale nel menù del tuo locale: abbina il vino a ogni piatto, lo spiega e lo serve — all'istante, in 8 lingue. Vendi più vino, 24/7.">
 <meta property="og:url" content="https://ai-som.it">
@@ -279,6 +279,22 @@ form input:focus,form select:focus,form textarea:focus{border-color:var(--copper
 .plan .btn{margin-top:auto;text-align:center;width:100%}
 
 footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font-size:14px;text-align:center}
+
+/* sezioni Marginalità, benefici, garanzia (18/10/2026) */
+.benefici{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.benefici ul{list-style:none;margin-top:14px}
+.benefici li{padding:8px 0 8px 26px;position:relative;color:var(--text);font-size:15px;border-bottom:1px solid var(--border)}
+.benefici li:last-child{border-bottom:none}
+.benefici li:before{content:'✓';position:absolute;left:0;color:var(--copper);font-weight:800}
+.garanzia{border:1px solid var(--copper);background:linear-gradient(135deg,#1d1214,#141010);border-radius:24px;padding:40px;display:flex;gap:30px;align-items:center}
+.sigillo{flex:0 0 124px;height:124px;border-radius:50%;border:3px solid var(--copper);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:800;line-height:1.05}
+.price small{display:block;font-size:13px;color:var(--text2);font-weight:500;margin-top:4px}
+.risparmio{display:inline-block;align-self:flex-start;background:var(--copper);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:4px 12px;margin-bottom:12px}
+.notaprezzi{text-align:center;color:var(--text2);font-size:14px;margin-top:22px}
+.dato{max-width:760px;margin:0 auto;text-align:center}
+.dato .big2{font-size:clamp(34px,6vw,58px);font-weight:800;color:#fff;letter-spacing:-.02em}
+.dato .vs{color:var(--text2);font-weight:600;font-size:.5em}
+@media(max-width:900px){.benefici{grid-template-columns:1fr}.garanzia{flex-direction:column;text-align:center;padding:28px}}
 </style>
 </head>
 <body>
@@ -286,20 +302,20 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
 <nav><div class="wrap">
   <div class="logo">AI <span class="cop">Som</span></div>
   <div class="nlinks">
-    <a href="#problema">Perché</a><a href="#demo">Demo</a><a href="#ordini">Gestione ordini</a><a href="#scenari">Scenari</a><a href="#prezzi">Prezzi</a><a href="#faq">FAQ</a>
+    <a href="#problema">Perché</a><a href="#demo">Demo</a><a href="#marginalita">Marginalità</a><a href="#garanzia">Garanzia</a><a href="#prezzi">Prezzi</a><a href="#faq">FAQ</a>
     <a href="https://cal.eu/ai-som" target="_blank" rel="noopener" class="btn" style="padding:9px 18px">Prenota una call</a>
   </div>
   <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
 </div></nav>
 <div class="drawer" id="drawer">
-  <a href="#problema">Perché AI Som</a><a href="#demo">Prova la demo</a><a href="#ordini">Gestione ordini</a><a href="#scenari">Scenari d'uso</a><a href="#prezzi">Prezzi</a><a href="#faq">FAQ</a><a href="https://cal.eu/ai-som" target="_blank" rel="noopener" class="cop">Prenota una call →</a>
+  <a href="#problema">Perché AI Som</a><a href="#demo">Prova la demo</a><a href="#marginalita">Marginalità</a><a href="#garanzia">Garanzia</a><a href="#prezzi">Prezzi</a><a href="#faq">FAQ</a><a href="https://cal.eu/ai-som" target="_blank" rel="noopener" class="cop">Prenota una call →</a>
 </div>
 
 <main>
 
 <!-- HERO -->
 <header class="hero"><div class="wrap">
-  <div class="badge"><span class="dot"></span> Prezzo fondatore · Solo per i primi 30 locali — ne restano 14</div>
+  <a href="#marginalita" class="badge"><span class="dot"></span> Novità · AI Som Margini: il prezzo giusto di ogni piatto →</a>
   <h1>Il vino giusto, per ogni cliente,<br><span class="cop">in 3 secondi</span>.</h1>
   <p class="sub">AI Som è il sommelier digitale nel menù del tuo locale: abbina il vino a ogni piatto, lo spiega e lo serve al tavolo — all'istante, in 8 lingue.</p>
   <div class="trustline">
@@ -311,7 +327,7 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
     <a href="#demo" class="btn">Prova la demo dal vivo</a>
     <a href="https://cal.eu/ai-som" target="_blank" rel="noopener" class="btn btn-ghost">Prenota una call gratuita</a>
   </div>
-  <div class="proof">Già scelto da 47 locali in Italia 🇮🇹</div>
+  <div class="proof">Provato in sala: con il sommelier il vino scelto vale il <b class="cop">117% in più</b> della media della carta*<br><span style="font-size:12px;opacity:.7">*ristorante di pesce in Toscana, una settimana di servizio reale, 39 tavoli</span></div>
   <div class="heroimg">
     <img src="hero-dashboard.png" alt="Dashboard AI Som con report e marginalità del vino" onerror="this.style.display='none'">
   </div>
@@ -349,10 +365,10 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
 <section id="problema"><div class="wrap">
   <div class="shead"><div class="eyebrow">Il problema</div><h2>La vendita di vino si perde in silenzio</h2><p>Non per colpa tua. Per come funziona il servizio in sala, ogni sera.</p></div>
   <div class="g4">
-    <div class="card"><div class="ico">😶</div><h3>Il cliente non chiede</h3><p>Il 60% dei clienti non chiede consiglio: si sentono ignoranti, temono la brutta figura. Ordinano il solito o la bottiglia più economica.</p></div>
+    <div class="card"><div class="ico">😶</div><h3>Il cliente non chiede</h3><p>Molti clienti non chiedono consiglio: temono la brutta figura. Ordinano il solito o la bottiglia più economica.</p></div>
     <div class="card"><div class="ico">🏃</div><h3>Il sommelier non basta</h3><p>Sabato sera, 60 coperti, tutto pieno. Il tuo miglior cameriere è al tavolo 8. Il 12 aspetta. Le vendite crollano proprio quando sei più pieno.</p></div>
     <div class="card"><div class="ico">🌍</div><h3>La barriera della lingua</h3><p>Il cliente straniero non capisce la carta e il personale non parla cinese o russo. Una tavola di 4 turisti che ordina solo acqua. Ogni sera.</p></div>
-    <div class="card"><div class="ico">📉</div><h3>Marginalità persa</h3><p>Le vendite HoReCa di vino sono calate del 4,9% nel 2024. Chi cresce è chi ha strumenti per vendere meglio, non solo per lavorare di più.</p></div>
+    <div class="card"><div class="ico">📉</div><h3>Marginalità persa</h3><p>Il vino vale il 21% dello scontrino, ma spesa e volumi nei locali sono in calo (Osservatorio FIPE-UIV 2026). Chi cresce è chi ha strumenti per vendere meglio, non solo per lavorare di più.</p></div>
   </div>
   <div class="solbox">
     <h3>AI Som risolve tutto questo — con un QR sul tavolo.</h3>
@@ -360,7 +376,7 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
       <li>Il cliente esplora in autonomia, senza imbarazzo</li>
       <li>Attivo 24/7, anche a Ferragosto alle 22:00</li>
       <li>8 lingue: il turista cinese ordina Barolo</li>
-      <li>Il 79% dei clienti segue il consiglio e acquista</li>
+      <li>Nel test in sala il vino scelto col sommelier valeva il 117% in più della media della carta</li>
       <li>Tu vedi i dati: cosa vendono, cosa no, dove guadagni di più</li>
     </ul>
   </div>
@@ -370,9 +386,9 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
 <section style="background:#0B0B0B;border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="wrap">
   <div class="shead"><div class="eyebrow">I numeri del mercato</div><h2>Il vino è la voce più alta del conto. E la più sottovalutata.</h2></div>
   <div class="g3">
-    <div class="card num"><div class="big" data-count="46" data-pre="+" data-suf="%">+46%</div><div class="lab">vendite vino in più</div><p>I ristoranti con sommelier attivo vendono il 46% di vino in più. AI Som porta questo vantaggio a ogni tavolo, senza costi di personale.</p><div class="src">Fonte: ricerche settore HoReCa</div></div>
-    <div class="card num"><div class="big" data-count="12" data-pre="€" data-suf=" mld">€12 mld</div><div class="lab">vino nella ristorazione</div><p>È quanto vale il vino ogni anno nei ristoranti italiani. Oltre il 21% del fatturato medio. La voce più alta del conto.</p><div class="src">Fonte: Osservatorio FIPE-UIV 2026</div></div>
-    <div class="card num"><div class="big" data-count="79" data-suf="%">79%</div><div class="lab">seguono il consiglio</div><p>Quasi 4 clienti su 5 che ricevono una raccomandazione personalizzata la seguono e acquistano. Spendono di più e sono più soddisfatti.</p><div class="src">Fonte: dati interni AI Som</div></div>
+    <div class="card num"><div class="big" data-count="117" data-pre="+" data-suf="%">+117%</div><div class="lab">valore del vino scelto</div><p>31,47 € contro 14,51 € di media della carta: è quanto valeva il vino scelto col sommelier AI Som in una settimana di servizio reale. Stesso locale, stessa carta.</p><div class="src">Fonte: dati AI Som, ristorante di pesce in Toscana, 39 tavoli</div></div>
+    <div class="card num"><div class="big" data-count="12" data-pre="€" data-suf=" mld">€12 mld</div><div class="lab">vino nella ristorazione</div><p>È quanto vale il vino ogni anno nei ristoranti italiani: oltre il 21% dello scontrino medio, più del 30% per un locale su cinque.</p><div class="src">Fonte: Osservatorio FIPE-UIV, aprile 2026</div></div>
+    <div class="card num"><div class="big" data-count="54" data-suf="%">54%</div><div class="lab">non rinnova la carta</div><p>Più di metà dei locali cambia la carta dei vini meno di una volta l'anno e uno su tre non fa formazione sul vino. Il sommelier digitale colma proprio questo vuoto.</p><div class="src">Fonte: Osservatorio FIPE-UIV, aprile 2026</div></div>
   </div>
 </div></section>
 
@@ -394,52 +410,24 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
 
 <!-- DENTRO AI SOM (screenshot reali, reveal allo scorrimento) -->
 <section id="dentro"><div class="wrap">
-  <div class="shead"><div class="eyebrow">Dentro AI Som</div><h2>Semplice per il cliente, potente per te</h2><p>La dashboard vera, non un mockup: quello che vedi è quello che usi.</p></div>
+  <div class="shead"><div class="eyebrow">Dentro AI Som</div><h2>Semplice per il cliente, potente per te</h2><p>Lo strumento vero, non un mockup: quello che vedi è quello che usi.</p></div>
 
   <div class="featrow">
     <div class="feattext">
-      <div class="eyebrow">Gestione sala</div>
-      <h3>Comande live, operatori e chiusura servizio</h3>
-      <p>Ogni tavolo in tempo reale: chi ha ordinato, chi serve (ogni cameriere ha il suo nome), conferma con un tocco, stampa e chiudi il servizio a fine serata. Zero palmari: basta lo smartphone.</p>
-    </div>
-    <div class="featimg"><img src="shot-dashboard.png" alt="Dashboard AI Som: comande in arrivo con operatori e chiusura servizio" onerror="this.closest('.featrow').style.display='none'"></div>
-  </div>
-
-  <div class="featrow rev">
-    <div class="feattext">
-      <div class="eyebrow">Menù digitale</div>
+      <div class="eyebrow">Menù e carta vini digitali</div>
       <h3>Il tuo menù caricato dall'AI, in 10 lingue</h3>
-      <p>Incolli il testo, carichi un PDF o un link: l'AI struttura piatti, prezzi e allergeni e traduce tutto in 10 lingue. Il turista ordina da solo, nella sua lingua.</p>
+      <p>Incolli il testo, carichi un PDF o un link: l'AI struttura piatti, prezzi e allergeni, prepara la carta dei vini con bottiglia e calice e traduce tutto. Il turista sceglie da solo, nella sua lingua, e il sommelier gli consiglia il vino giusto.</p>
     </div>
     <div class="featimg"><img src="shot-menu.png" alt="Import del menù con AI da PDF, testo o link" onerror="this.closest('.featrow').style.display='none'"></div>
   </div>
 
-  <div class="featrow">
-    <div class="feattext">
-      <div class="eyebrow">Margini</div>
-      <h3>Quanto guadagni davvero, piatto per piatto</h3>
-      <p>Inserisci il costo di acquisto di ogni piatto e bottiglia — puoi cambiarlo quando vuoi — e AI Som calcola il margine reale sulle vendite: per mese, per anno, con la classifica di ciò che rende di più. Decidi cosa spingere coi dati, non a sensazione.</p>
-    </div>
-    <div class="featimg"><img src="shot-margini.png" alt="Dashboard margini: incasso, costi di acquisto e margine per periodo" onerror="this.closest('.featrow').style.display='none'"></div>
-  </div>
-
   <div class="featrow rev">
     <div class="feattext">
-      <div class="eyebrow">Modalità Sala</div>
-      <h3>Il palmare? È il telefono che hai già</h3>
-      <p>I camerieri aprono i tavoli, prendono le comande e confermano dal proprio smartphone. Comanda unica per tavolo, niente doppioni, niente hardware da comprare.</p>
+      <div class="eyebrow">Novità · Marginalità</div>
+      <h3>Il prezzo giusto di ogni piatto, dai tuoi costi veri</h3>
+      <p>Fatture, bollette, personale, affitto e macchinari diventano il prezzo minimo e il prezzo per il tuo margine di ogni piatto, vino e calice. <a href="https://ai-som-saas.vercel.app/margini/demo" target="_blank" rel="noopener" class="cop">Prova la demo →</a></p>
     </div>
-    <div class="featimg"><img src="shot-sala.png" alt="Modalità Sala: comande dal telefono del cameriere" onerror="this.closest('.featrow').style.display='none'"></div>
-  </div>
-
-  <div class="solbox">
-    <h3>💶 E la cassa? Parla direttamente con l'Agenzia delle Entrate.</h3>
-    <ul>
-      <li>Dalla comanda allo scontrino in un tocco: rivedi l'ordine, applichi lo sconto (percentuale o importo), emetti</li>
-      <li>Configurabile per trasmettere i corrispettivi direttamente all'Agenzia delle Entrate: <b>il registratore di cassa non è più un obbligo</b></li>
-      <li>Scontrino con il tuo logo e la tua intestazione: stampalo o invialo via WhatsApp ed email</li>
-      <li>Costa meno di un gestionale di cassa tradizionale — e dentro c'è anche il sommelier</li>
-    </ul>
+    <div class="featimg"><img src="shot-marginalita.png" alt="AI Som Margini: costi fissi, costo per cliente, pareggio e food cost massimo" onerror="this.closest('.featrow').style.display='none'"></div>
   </div>
 </div></section>
 
@@ -471,64 +459,143 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
 </div></section>
 
 <!-- GESTIONE ORDINI -->
-<section id="ordini" style="background:#0B0B0B;border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="wrap">
-  <div class="shead"><div class="eyebrow">Gestione ordini</div><h2>Non solo il vino: gestisci tutta la sala da un telefono</h2><p>Nessun palmare da comprare, configurare o rompere. Basta lo smartphone che il tuo staff ha già in tasca — e costa meno di tanti sistemi di comande tradizionali.</p></div>
-  <div class="g4">
-    <div class="card"><div class="ico">📱</div><h3>Zero palmari</h3><p>Funziona su qualsiasi smartphone. Niente hardware dedicato da acquistare, aggiornare o sostituire quando si rompe.</p></div>
-    <div class="card"><div class="ico">✅</div><h3>Accettazione ordine</h3><p>La comanda arriva in cucina e al bar con un tocco: si accetta, si prepara, si serve. Niente carta, niente fraintendimenti tra sala e cucina.</p></div>
-    <div class="card"><div class="ico">🙋</div><h3>Self order del cliente</h3><p>Il cliente ordina piatti e vino da solo, dal tavolo, quando vuole lui — senza aspettare che qualcuno passi a prendere l'ordine.</p></div>
-    <div class="card"><div class="ico">🧑‍🍳</div><h3>Ordine da cameriere</h3><p>Il cameriere apre il tavolo e prende la comanda: il commensale sa già cosa mangiare e bere grazie al consiglio dell'AI, si serve più veloce.</p></div>
+<section id="analisi" style="background:#0B0B0B;border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="wrap">
+  <div class="shead"><div class="eyebrow">L'analisi</div><h2>Il margine non si perde in sala.<br>Si perde nei conti.</h2><p>Prima dei benefici, i numeri del settore. Sono pubblici e spiegano perché tanti locali lavorano tanto e guadagnano poco.</p></div>
+  <div class="g3">
+    <div class="card num"><div class="big">29.097</div><div class="lab">imprese chiuse nel 2024</div><p>Contro 10.719 aperture. Dopo 5 anni resta aperto solo il 53% delle imprese, e la FIPE lo lega alle capacità di gestione.</p><div class="src">Fonte: FIPE, Rapporto Ristorazione 2025</div></div>
+    <div class="card num"><div class="big">+14,7%</div><div class="lab">i listini in tre anni</div><p>Dal 2021 al 2024 i prezzi dei ristoranti sono saliti meno dell'inflazione (+15,4%) mentre energia, personale e materie prime correvano: il margine si è ristretto senza che nessuno lo misurasse.</p><div class="src">Fonte: FIPE, Rapporto Ristorazione 2025</div></div>
+    <div class="card num"><div class="big">−6%</div><div class="lab">consumi in volume sul 2019</div><p>Il fuori casa vale di più (+11,3%) ma si consuma meno di prima del Covid: meno ordini, e ognuno deve rendere di più.</p><div class="src">Fonte: FIPE, Rapporto Ristorazione 2025</div></div>
+  </div>
+  <div class="g3" style="margin-top:22px">
+    <div class="card num"><div class="big">21%</div><div class="lab">dello scontrino è vino</div><p>12 miliardi l'anno. Ma la spesa per il vino cala (saldo −17) e i volumi ancora di più (−28, −35 nelle trattorie).</p><div class="src">Fonte: Osservatorio FIPE-UIV, aprile 2026</div></div>
+    <div class="card num"><div class="big">53%</div><div class="lab">fatica a gestire il vino</div><p>Più di metà dei ristoratori dichiara problemi nella gestione del vino; il primo è la domanda che cala.</p><div class="src">Fonte: Osservatorio FIPE-UIV, aprile 2026</div></div>
+    <div class="card num"><div class="big">30-40%</div><div class="lab">del fatturato al personale</div><p>Con servizio al tavolo il personale pesa dal 30 al 40%, le materie prime dal 28 al 35%, l'affitto fino al 10%. Per l'utile resta poco, e basta un prezzo sbagliato per azzerarlo.</p><div class="src">Incidenze indicative di settore</div></div>
   </div>
   <div class="solbox">
-    <h3>Controlli i costi di sala, non solo il servizio</h3>
+    <h3>Cosa ne ricaviamo</h3>
     <ul>
-      <li>Prendere le comande richiede meno tempo: puoi ridurre i costi di personale nelle ore di punta, o far rendere di più lo stesso staff</li>
-      <li>Vedi la marginalità di ogni piatto e di ogni vino, non solo quanto venduto</li>
-      <li>Decidi cosa spingere in base al margine reale, non a sensazione</li>
-      <li>Un sistema completo — sommelier, comande e report — a un costo più basso di molte soluzioni di sola gestione ordini sul mercato</li>
+      <li><b>Il vino è il punto più facile da cui recuperare margine</b>: è un quinto del conto, ha il ricarico più alto e oggi in sala nessuno ha il tempo di consigliarlo. È il lavoro di AI Som.</li>
+      <li><b>I prezzi vanno rifatti sui costi veri</b>, non col «food cost per tre». Nella trattoria d'esempio della nostra demo (20.700 € di costi fissi al mese, 50 coperti al giorno) ogni cliente costa 15,93 € prima ancora di mangiare e le materie prime non possono superare il 31% del prezzo: col «per tre» guadagnerebbe il 6-7% invece del 12% che vuole. È il calcolo di Marginalità.</li>
+      <li><b>Servono tutti e due</b>: vendere di più quello che rende, e farlo pagare il giusto.</li>
     </ul>
   </div>
-  <div class="card num" style="margin-top:28px;max-width:460px;margin-left:auto;margin-right:auto;text-align:center">
-    <div class="big">+4% / +25%</div><div class="lab">di fatturato nei locali pilota</div>
-    <p>Nei prototipi testati per zona, i locali che hanno attivato la gestione ordini di AI Som hanno registrato aumenti di fatturato dal 4% al 25%, a seconda dell'area.</p>
+</div></section>
+
+<section id="marginalita"><div class="wrap">
+  <div class="shead"><div class="eyebrow">Novità · AI Som Margini</div><h2>Quanto deve costare ogni piatto<br>per guadagnare davvero</h2><p>Fotografi le fatture e le bollette, inserisci affitto, personale e macchinari: Margini ti dice il prezzo minimo e il prezzo giusto di ogni piatto, vino, calice, cocktail e gelato.</p>
+    <div class="cta" style="margin-top:24px;justify-content:center"><a href="https://ai-som-saas.vercel.app/margini/demo" target="_blank" rel="noopener" class="btn">Prova la demo di Margini</a><a href="#prezzi" class="btn btn-ghost">Vedi i prezzi</a></div>
+  </div>
+  <div class="featrow">
+    <div class="feattext">
+      <div class="eyebrow">Il risultato in alto, sempre</div>
+      <h3>Mentre compili, i numeri si aggiornano</h3>
+      <p>Costi fissi del mese, quanto ti costa ogni cliente, l'incasso per andare in pari, il tuo food cost massimo, l'utile stimato e le voci che non coprono i costi. Un menù laterale ti accompagna sezione per sezione e ti dice cosa manca.</p>
+    </div>
+    <div class="featimg"><img src="shot-marginalita.png" alt="AI Som Margini: il risultato in alto e il menù laterale" onerror="this.closest('.featrow').style.display='none'"></div>
+  </div>
+  <div class="g4">
+    <div class="card"><div class="ico">🧾</div><h3>Fatture lette da sole</h3><p>XML della fattura elettronica (anche firmato .p7m), PDF o foto dal telefono. Ogni riga diventa un ingrediente col suo prezzo al chilo; se il formato non c'è, conta la media degli acquisti.</p></div>
+    <div class="card"><div class="ico">💡</div><h3>Tutti i costi, nessuno dimenticato</h3><p>Affitto o mutuo, bollette (anche dalla foto), personale, leasing e macchinari, commercialista, TARI. E il tuo stipendio: se non lo metti, il margine che vedi è il tuo lavoro.</p></div>
+    <div class="card"><div class="ico">🍝</div><h3>Anche i nomi di fantasia</h3><p>«Il Giardino della Nonna»? Spunti gli ingredienti tra oltre 2.000 alimenti o lo descrivi in due parole, e l'AI propone ricetta e grammature da controllare.</p></div>
+    <div class="card"><div class="ico">🍷</div><h3>Bottiglia e calice</h3><p>Il costo vero del calice, col vino che si perde nelle bottiglie aperte. Vale anche per cocktail, birra alla spina, gelato a peso e taglieri da enoteca.</p></div>
+  </div>
+  <div class="solbox">
+    <h3>Come calcola il prezzo giusto</h3>
+    <ul>
+      <li>Somma i costi fissi del mese e li confronta con l'incasso: su 100 € incassati sa quanti ne vanno ad affitto, bollette e personale.</li>
+      <li>Aggiunge il margine che vuoi tu, in percentuale o in euro al mese: quello che resta è il tuo <b>food cost massimo</b>.</li>
+      <li>Per ogni voce prende il costo delle materie prime dalle fatture e calcola il <b>prezzo minimo</b> (zero perdite) e il <b>prezzo per il tuo margine</b>, IVA inclusa.</li>
+      <li>Si installa su computer e telefono. Per ristoranti, pizzerie, bar, gelaterie, pasticcerie ed enoteche.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="benefici" style="background:#0B0B0B;border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="wrap">
+  <div class="shead"><div class="eyebrow">I benefici</div><h2>Cosa ci guadagni, concretamente</h2><p>Dall'analisi a quello che cambia nel tuo locale, voce per voce.</p></div>
+  <div class="benefici">
+    <div class="card"><div class="ico">🍷</div><h3>AI Som</h3><p class="muted">Sommelier, menù e carta vini digitali</p><ul>
+      <li>Più vino venduto e di valore più alto: +117% nel test in sala</li>
+      <li>Un sommelier a ogni tavolo, anche il sabato sera</li>
+      <li>8 lingue: il turista ordina il vino, non l'acqua</li>
+      <li>Il cameriere nuovo consiglia come un esperto</li>
+      <li>Menù e carta aggiornati in un minuto, senza ristampe</li>
+      <li>Cantina ferma sotto controllo: vedi le bottiglie mai scelte</li>
+      <li>Report: vini che rendono di più, bottiglia o calice</li>
+      <li>Nessuna app da scaricare: un QR sul tavolo</li>
+    </ul></div>
+    <div class="card"><div class="ico">💰</div><h3>Marginalità</h3><p class="muted">Il prezzo giusto dai costi veri</p><ul>
+      <li>Sai quanto ti costa ogni cliente prima che si sieda</li>
+      <li>Il tuo food cost massimo, ricavato dai tuoi conti</li>
+      <li>Prezzo minimo e prezzo giusto di ogni voce</li>
+      <li>Fatture lette in automatico: XML, PDF o foto</li>
+      <li>Allarme rincari: vedi quando un fornitore alza i prezzi</li>
+      <li>Pareggio chiaro: quanti coperti ti servono al giorno</li>
+      <li>Ti dice lui cosa manca, voce per voce</li>
+      <li>Cambi il margine e vedi subito i nuovi prezzi</li>
+    </ul></div>
+    <div class="card" style="border-color:var(--copper)"><div class="ico">🤝</div><h3>Insieme</h3><p class="muted">AI Som + Marginalità</p><ul>
+      <li>Il sommelier fa vendere più vino, Margini ti dice quanto ti lascia ogni bottiglia e ogni calice</li>
+      <li>Prezzi di calici e bottiglie che reggono, con lo spreco già calcolato</li>
+      <li>Il menù di AI Som entra in Margini con un clic</li>
+      <li>Un solo accesso, una sola assistenza</li>
+      <li>Risparmi 100 € l'anno</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section id="garanzia"><div class="wrap">
+  <div class="garanzia">
+    <div class="sigillo"><span style="font-size:38px">90</span><span style="font-size:12px;letter-spacing:2px">GIORNI</span></div>
+    <div>
+      <div class="eyebrow">Garanzia risultato</div>
+      <h2 style="font-size:clamp(24px,3.4vw,36px);margin:10px 0 12px">Più vino venduto e più margine.<br>O ti rimborsiamo.</h2>
+      <p class="muted">Se nei primi 90 giorni il vino scelto con AI Som non vale più della media della tua carta — lo misura il report — oppure se Marginalità non ti trova margine da recuperare sui tuoi prezzi, ti restituiamo l'intero abbonamento. Basta una email a info@ai-som.it.</p>
+    </div>
   </div>
 </div></section>
 
 <!-- PREZZI -->
 <section id="prezzi" style="background:#0B0B0B;border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="wrap">
-  <div class="shead"><div class="eyebrow">Piani e prezzi</div><h2>Scegli il piano adatto alla tua attività</h2><p>Canone annuale. Ti mostriamo tutto dal vivo in una call, senza impegno.</p></div>
+  <div class="shead"><div class="eyebrow">Piani e prezzi</div><h2>Due strumenti, un prezzo chiaro</h2><p>Canone annuale, IVA esclusa. Ti mostriamo tutto dal vivo in una call, senza impegno.</p></div>
   <div class="plans">
     <div class="plan">
-      <h3>Solo menù + AI</h3>
-      <div class="price">300 €<span> / anno</span></div>
+      <h3>AI Som</h3>
+      <div class="price">300 €<span> / anno</span><small>25 € al mese</small></div>
       <ul>
+        <li>Sommelier AI che consiglia il vino su ogni piatto</li>
         <li>Menù digitale multilingua via QR</li>
-        <li>Sommelier AI: consiglia il vino su ogni piatto</li>
+        <li>Carta dei vini digitale, bottiglia e calice</li>
+        <li>Report vino: cantina ferma, vini che rendono di più</li>
         <li>Nessuna app da scaricare per il cliente</li>
       </ul>
-      <a href="#contatti" class="btn btn-ghost">Richiedi informazioni →</a>
+      <a href="#contatti" class="btn btn-ghost">Richiedi AI Som →</a>
     </div>
     <div class="plan hi">
-      <h3>Menù AI + Ordini e palmari</h3>
-      <div class="price">600 €<span> / anno</span></div>
+      <div class="risparmio">Conviene · risparmi 100 €</div>
+      <h3>AI Som + Marginalità</h3>
+      <div class="price">800 €<span> / anno</span><small>66,67 € al mese</small></div>
       <ul>
-        <li>Tutto del piano <b>Solo menù + AI</b></li>
-        <li>Gestione ordini e comande digitali</li>
-        <li>Palmari per la presa comande al tavolo</li>
+        <li>Tutto di <b>AI Som</b></li>
+        <li>Tutto di <b>Marginalità</b></li>
+        <li>Il menù entra in Margini con un clic</li>
+        <li>Prezzi di bottiglie e calici calcolati sui costi veri</li>
       </ul>
-      <a href="#contatti" class="btn">Richiedi informazioni →</a>
+      <a href="#contatti" class="btn">Richiedi la combo →</a>
     </div>
     <div class="plan">
-      <h3>Con cassa integrata e POS</h3>
-      <div class="price">900 €<span> / anno</span></div>
+      <h3>Marginalità</h3>
+      <div class="price">600 €<span> / anno</span><small>50 € al mese</small></div>
       <ul>
-        <li>Tutto del piano <b>Ordini e palmari</b></li>
-        <li>Cassa integrata</li>
-        <li>POS per i pagamenti</li>
+        <li>Prezzo minimo e prezzo giusto di ogni piatto, vino e calice</li>
+        <li>Fatture lette in automatico (XML, PDF, foto)</li>
+        <li>Bollette, personale, affitto e macchinari</li>
+        <li>Ricette con oltre 2.000 alimenti</li>
+        <li>App per computer e telefono</li>
       </ul>
-      <a href="#contatti" class="btn btn-ghost">Richiedi informazioni →</a>
+      <a href="https://ai-som-saas.vercel.app/margini/demo" target="_blank" rel="noopener" class="btn btn-ghost">Prova la demo →</a>
     </div>
   </div>
+  <p class="notaprezzi">Tutti i piani hanno la <a href="#garanzia" class="cop">garanzia risultato di 90 giorni</a>.</p>
 </div></section>
 
 <!-- COME FUNZIONA -->
@@ -550,7 +617,7 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
     <button class="tab" data-t="2">🍸 Bar & Wine Bar</button>
     <button class="tab" data-t="3">🏨 Hotel & Produttore</button>
   </div>
-  <div class="tabpane active" data-p="0"><h3>Ristorante</h3><p class="muted">Alza lo scontrino guidando gli abbinamenti, gestisci pranzo e cena e scopri quali piatti e vini rendono di più.</p><ul><li>Abbinamento intelligente carne/pesce per tutto il tavolo</li><li>Comande con piatti + vino alla dashboard, stampabili</li><li>Report piatti e marginalità per settimana, mese e anno</li></ul></div>
+  <div class="tabpane active" data-p="0"><h3>Ristorante</h3><p class="muted">Alza lo scontrino guidando gli abbinamenti, gestisci pranzo e cena e scopri quali piatti e vini rendono di più.</p><ul><li>Abbinamento intelligente carne/pesce per tutto il tavolo</li><li>Prezzi di piatti e vini calcolati sui costi veri, con Marginalità</li><li>Report vino: cantina ferma, bottiglia contro calice</li></ul></div>
   <div class="tabpane" data-p="1"><h3>Enoteca</h3><p class="muted">Valorizza ogni etichetta: il sommelier digitale racconta i vini e spinge le bottiglie di pregio, anche al calice.</p><ul><li>Schede vino ricche con profilo sensoriale</li><li>Vendita al calice e alla bottiglia</li><li>Il cliente esplora da solo e acquista con sicurezza</li></ul></div>
   <div class="tabpane" data-p="2"><h3>Bar & Wine Bar</h3><p class="muted">Flusso alto e clientela internazionale: menù multilingua e proposte automatiche velocizzano il servizio e aumentano le consumazioni.</p><ul><li>8 lingue per i turisti, zero attese</li><li>Proposte rapide per aperitivo e calici</li><li>Più rotazione, più consumazioni per tavolo</li></ul></div>
   <div class="tabpane" data-p="3"><h3>Hotel & Produttore</h3><p class="muted">Un'esperienza premium per i tuoi ospiti e una vetrina digitale per le tue etichette.</p><ul><li>Sommelier digitale per ristorante d'hotel</li><li>Storytelling delle bottiglie del produttore</li><li>Versione white label e per e-commerce</li></ul></div>
@@ -558,22 +625,22 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
 
 <!-- PRODOTTI -->
 <section style="background:#0B0B0B;border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="wrap">
-  <div class="shead"><div class="eyebrow">La gamma</div><h2>Una soluzione per ogni attività</h2><p>Dal sommelier digitale via QR all'e-commerce e al white label.</p></div>
+  <div class="shead"><div class="eyebrow">La gamma</div><h2>Una soluzione per ogni attività</h2><p>Dal sommelier digitale via QR alla marginalità, all'e-commerce e al white label.</p></div>
   <div class="g4">
-    <div class="card"><div class="ico">🍽️</div><h3>AI Som</h3><p>Il sommelier digitale via QR per ristoranti ed enoteche. Menù, comande, report.</p></div>
+    <div class="card"><div class="ico">🍽️</div><h3>AI Som</h3><p>Il sommelier digitale via QR per ristoranti ed enoteche. Menù, carta vini, report.</p></div>
     <div class="card"><div class="ico">🛒</div><h3>AI Som per siti web</h3><p>Widget per e-commerce di vino: consiglia e converte direttamente nello shop.</p></div>
     <div class="card"><div class="ico">🏷️</div><h3>AI Som White Label</h3><p>La tecnologia col tuo brand, per catene e gruppi della ristorazione.</p></div>
-    <div class="card"><div class="ico">🍸</div><h3>Social Bar</h3><p>L'esperienza pensata per bar e aperitivi ad alto flusso. In arrivo.</p></div>
+    <div class="card"><div class="ico">💰</div><h3>AI Som Margini</h3><p>Il prezzo giusto di ogni piatto, vino e calice, calcolato su fatture, bollette e personale.</p></div>
   </div>
 </div></section>
 
 <!-- SOCIAL PROOF -->
 <section><div class="wrap">
-  <div class="quote">
-    <div class="q">"Prima di AI Som, almeno il 40% dei tavoli non ordinava vino. Ora quella percentuale è crollata. La differenza sul fatturato mensile è concreta — e i clienti stranieri finalmente si sentono guidati."</div>
-    <div class="by">— Titolare, ristorante 55 coperti, Toscana</div>
+  <div class="dato">
+    <div class="eyebrow">Il dato reale</div>
+    <div class="big2">31,47 € <span class="vs">contro</span> 14,51 €</div>
+    <p class="muted" style="margin-top:10px">Il valore medio del vino scelto col sommelier AI Som, contro la media della carta: una settimana di servizio reale in un ristorante di pesce in Toscana, 39 tavoli. Stesso locale, stessa carta, stessi camerieri.</p>
   </div>
-  <div class="counter">Già scelto da <span class="cop">47 locali</span> in Italia 🇮🇹</div>
 </div></section>
 
 <!-- LINGUE -->
@@ -617,10 +684,10 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--text2);font
         <div class="fld"><label>Email *</label><input type="email" name="Email" required></div>
         <div class="fld"><label>Telefono</label><input name="Telefono"></div>
         <div class="fld"><label>Tipo di attività</label>
-          <select name="Attivita"><option>Ristorante</option><option>Enoteca</option><option>Bar / Wine Bar</option><option>E-commerce vino</option><option>Produttore vitivinicolo</option><option>Altro</option></select>
+          <select name="Attivita"><option>Ristorante</option><option>Trattoria / Osteria</option><option>Pizzeria</option><option>Enoteca</option><option>Bar / Wine Bar</option><option>Gelateria</option><option>Pasticceria</option><option>E-commerce vino</option><option>Produttore vitivinicolo</option><option>Altro</option></select>
         </div>
         <div class="fld"><label>Prodotto di interesse</label>
-          <select name="Prodotto"><option>AI Som</option><option>AI Som per siti web</option><option>AI Som White Label</option><option>Social Bar</option><option>Non so ancora</option></select>
+          <select name="Prodotto"><option>AI Som + Marginalità (800 €/anno)</option><option>AI Som (300 €/anno)</option><option>Marginalità (600 €/anno)</option><option>AI Som per siti web</option><option>AI Som White Label</option><option>Non so ancora</option></select>
         </div>
         <div class="fld"><label>Numero di coperti o referenze vino</label><input name="Dimensione"></div>
         <div class="fld"><label>Messaggio (opzionale)</label><textarea name="Messaggio" rows="3"></textarea></div>
@@ -659,8 +726,13 @@ var FAQ=[
 ["Come funziona il supporto multilingua?","Il cliente sceglie la lingua e scrive la sua richiesta. AI Som risponde completamente in quella lingua: descrizioni e consigli di servizio."],
 ["I dati dei clienti sono al sicuro?","AI Som non raccoglie dati personali. Le ricerche sono anonime e aggregate. Il ristoratore vede solo statistiche di utilizzo."],
 ["Funziona anche senza connessione internet stabile?","Funziona con una normale connessione 4G. Per zone con connettività limitata valutiamo soluzioni ad hoc."],
-["Posso provarlo prima di decidere?","Sì: organizziamo una call con demo live sul tuo catalogo. Vedi AI Som con i tuoi vini prima di qualsiasi decisione."],
-["AI Som sostituisce il sommelier?","No, lo potenzia. Si occupa della consulenza di base liberando il personale per interazioni di valore più alto. Nei momenti di punta è indispensabile."]
+["Posso provarlo prima di decidere?","Sì: la demo del sommelier è qui sopra e quella di Marginalità è online. In una call ti mostriamo entrambi con i tuoi vini e il tuo menù prima di qualsiasi decisione."],
+["AI Som sostituisce il sommelier?","No, lo potenzia. Si occupa della consulenza di base liberando il personale per interazioni di valore più alto. Nei momenti di punta è indispensabile."],
+["Cos'è AI Som Margini?","Lo strumento che calcola quanto deve costare ogni piatto, vino, calice, cocktail o gelato per guadagnare quanto vuoi. Parte dai tuoi costi veri: fatture d'acquisto, bollette, personale, affitto o mutuo, macchinari. Si installa su computer e telefono e c'è una demo da provare subito."],
+["Devo inserire le fatture a mano?","No. Carichi l'XML della fattura elettronica (anche firmato .p7m), il PDF o una foto: lo strumento legge le righe, riconosce i prodotti e calcola il prezzo al chilo. Tu controlli e confermi. Se una riga non dice quanti chili sono, usa la media dei tuoi acquisti."],
+["E se nel menù ho piatti con nomi di fantasia?","Li spieghi tu: scegli gli ingredienti da un elenco di oltre 2.000 alimenti oppure scrivi in due parole cosa contiene il piatto, e l'AI propone ingredienti e grammature da controllare. Lo strumento ti avvisa di ogni piatto ancora senza ricetta."],
+["Come funziona la garanzia di 90 giorni?","Se nei primi 90 giorni il vino scelto con AI Som non vale più della media della tua carta (lo dice il report), o se Marginalità non ti trova margine da recuperare sui tuoi prezzi, ti rimborsiamo l'intero abbonamento. Basta una email a info@ai-som.it."],
+["Va bene anche per gelaterie ed enoteche?","Sì. Marginalità lavora a ricette e porzioni (anche a peso, come il gelato) e gestisce bottiglie, calici e vendita da asporto con la sua IVA. AI Som consiglia vini anche al calice."]
 ];
 var faqEl=document.getElementById('faq');
 FAQ.forEach(function(f){
