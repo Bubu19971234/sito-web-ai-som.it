@@ -1,5 +1,5 @@
 /* AI Som Margini · calcolatore di prova con tre locali di esempio. Widget autonomo:
-   <div data-aisom-margini data-cta-href="URL richiesta prova"></div>
+   <div data-aisom-margini data-cta-href="URL richiesta prova" [data-tema="cdb"]></div>
    <script src=".../calcolatore-margini.js" defer></script>
    Formule identiche all'app (lib/margini/calcolo.ts), con costi variabili a zero:
    - quota fissi       = costi fissi del mese / incasso netto del mese
@@ -77,6 +77,28 @@
     ".aisom-margini .am-cta .p{background:var(--wine);color:#fff}",
     ".aisom-margini .am-cta .s{border:1px solid var(--bd);color:#EDE6DD}",
     "@media(max-width:760px){.aisom-margini{padding:20px 14px}.aisom-margini .am-grid,.aisom-margini .am-kpi{grid-template-columns:1fr 1fr}.aisom-margini .am-tab{flex:1 1 auto}.aisom-margini thead{display:none}.aisom-margini table,.aisom-margini tbody{display:block}.aisom-margini tr{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;padding:12px 0;border-bottom:1px solid var(--bd)}.aisom-margini td{display:flex;flex-direction:column;align-items:flex-start;border:0;padding:0;text-align:left;font-size:15px}.aisom-margini td::before{content:attr(data-l);font-size:12px;color:var(--tx2)}.aisom-margini td.am-nome{grid-column:1/-1;font-weight:700;color:#fff}.aisom-margini td.am-nome::before{content:none}.aisom-margini td input{width:100%;margin:2px 0 0;text-align:left}}",
+    ".aisom-margini.tema-cdb{--d1:#ffffff;--d2:#ffffff;--d3:#f6f5f0;--wine:#181918;--wine3:#8a702d;--oro:#8a702d;--tx:#4d4e47;--tx2:#666761;--bd:#deded7;--ok:#2f6f45;--warn:#7a5200;--ko:#a32a2a;font-family:inherit;color:#181918;border-radius:4px;box-shadow:0 1px 0 #deded7}",
+    ".aisom-margini.tema-cdb .am-tag{color:#8a702d;border-color:#c6ac61;border-radius:2px}",
+    ".aisom-margini.tema-cdb .am-tab{background:#fff;color:#181918;border-color:#deded7;border-radius:2px;font-weight:500}",
+    ".aisom-margini.tema-cdb .am-tab[aria-selected=true]{background:#181918;border-color:#181918;color:#fff}",
+    ".aisom-margini.tema-cdb input{background:#fff;color:#181918;border-color:#c4c4b9;border-radius:2px}",
+    ".aisom-margini.tema-cdb input:focus{border-color:#181918}",
+    ".aisom-margini.tema-cdb :focus-visible{outline:3px solid #a48838;outline-offset:3px}",
+    ".aisom-margini.tema-cdb .am-k{background:#f6f5f0;border-color:#e2ddcc;border-radius:2px}",
+    ".aisom-margini.tema-cdb .am-k .v{color:#181918;font-weight:600}",
+    ".aisom-margini.tema-cdb .am-k.oro{background:#f3ecd8;border-color:#c6ac61}",
+    ".aisom-margini.tema-cdb .am-k.oro .v{color:#6e5a20}",
+    ".aisom-margini.tema-cdb td{color:#181918}",
+    ".aisom-margini.tema-cdb td.am-nome{color:#181918}",
+    ".aisom-margini.tema-cdb .am-st{border-radius:2px}",
+    ".aisom-margini.tema-cdb .am-st.ok{background:#e4f1e8}",
+    ".aisom-margini.tema-cdb .am-st.basso{background:#f8eccd}",
+    ".aisom-margini.tema-cdb .am-st.perdita{background:#f8e0e0}",
+    ".aisom-margini.tema-cdb .am-msg{background:#f8e0e0;border-color:#e3b3b3;color:#5a1a1a;border-radius:2px}",
+    ".aisom-margini.tema-cdb .am-cta a{border-radius:2px;font-weight:500}",
+    ".aisom-margini.tema-cdb .am-cta .p{background:#181918;color:#fff}",
+    ".aisom-margini.tema-cdb .am-cta .p:hover{background:#c6ac61;color:#181918}",
+    ".aisom-margini.tema-cdb .am-cta .s{border-color:#deded7;color:#181918}",
   ].join('\n')
 
   var eur = function (x, dec) {
@@ -120,6 +142,7 @@
     if (root.getAttribute('data-aisom-mounted')) return
     root.setAttribute('data-aisom-mounted', '1')
     root.classList.add('aisom-margini')
+    if (root.getAttribute('data-tema') === 'cdb') root.classList.add('tema-cdb')
     var cta = root.getAttribute('data-cta-href') || 'https://www.ai-som.it/prova-margini.html#richiesta'
     var demoFull = 'https://ai-som-saas.vercel.app/margini/demo'
     var chiave = 'ristorante', s = copia(ESEMPI[chiave]), toccato = false
