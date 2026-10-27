@@ -6,7 +6,7 @@
    Per attivarlo basta impostare GA_ID con l'ID di misurazione GA4 (G-…). */
 (function () {
   'use strict'
-  var GA_ID = 'G-XXXXXXXXXX'
+  var GA_ID = 'G-3MBYY15RHV'
   var CHIAVE = 'aisom_consenso_v1'
   var attivo = /^G-[A-Z0-9]{6,}$/.test(GA_ID) && GA_ID !== 'G-XXXXXXXXXX'
 
