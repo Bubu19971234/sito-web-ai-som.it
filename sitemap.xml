@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ai-som.it/</loc></url>
-  <url><loc>https://ai-som.it/per-bar.html</loc></url>
-  <url><loc>https://ai-som.it/per-produttori.html</loc></url>
-  <url><loc>https://ai-som.it/social-bar.html</loc></url>
+  <url><loc>https://www.ai-som.it/</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://www.ai-som.it/prova-sommelier.html</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://www.ai-som.it/prova-margini.html</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://www.ai-som.it/per-bar.html</loc></url>
+  <url><loc>https://www.ai-som.it/per-produttori.html</loc></url>
+  <url><loc>https://www.ai-som.it/social-bar.html</loc></url>
+  <url><loc>https://www.ai-som.it/privacy.html</loc></url>
 </urlset>

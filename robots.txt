@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
-Sitemap: https://ai-som.it/sitemap.xml
+Disallow: /grazie.html
+Disallow: /grazie-pagamento.html
+Sitemap: https://www.ai-som.it/sitemap.xml

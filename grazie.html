@@ -3,28 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grazie — AI Som</title>
+<title>Richiesta ricevuta · AI Som</title>
+<meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing.css">
+<script src="analytics.js"></script>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:#1C1C1C;color:#C0B0A0;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px}
-:root{--copper:#D4A85A;--font-d:'DM Serif Display',Georgia,serif}
-.wrap{max-width:560px}
-.icon{font-size:4rem;margin-bottom:32px}
-h1{font-family:var(--font-d);font-size:3rem;font-weight:400;color:#fff;margin-bottom:16px}
-h1 em{font-style:italic;color:var(--copper)}
-p{font-size:1.05rem;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:40px}
-a{display:inline-flex;align-items:center;gap:8px;background:var(--copper);color:#1C1C1C;padding:14px 32px;border-radius:100px;font-weight:600;font-size:0.92rem;text-decoration:none;transition:0.25s ease}
-a:hover{background:#B8903E;transform:translateY(-2px)}
+main{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 16px}
+.box{max-width:560px}.icon{font-size:56px;margin-bottom:20px}
+h1{font-size:clamp(32px,6vw,46px);margin-bottom:16px}
+ol{text-align:left;max-width:440px;margin:22px auto 30px;display:grid;gap:10px;color:var(--tx);padding-left:22px}
 </style>
 </head>
 <body>
-<div class="wrap">
+<main><div class="box">
   <div class="icon">🍷</div>
-  <h1>Grazie per<br><em>averci scritto</em></h1>
-  <p>Abbiamo ricevuto la tua richiesta.<br>Ti risponderemo entro 24 ore per concordare la call conoscitiva.</p>
-  <a href="index.html">← Torna alla homepage</a>
-</div>
+  <h1>Richiesta <span class="cop">ricevuta</span></h1>
+  <p id="testo">Grazie. Ti ricontattiamo per organizzare la prova sul tuo locale.</p>
+  <ol id="passi">
+    <li>Ti chiamiamo o ti scriviamo per conoscere il locale.</li>
+    <li>Ti chiediamo il materiale che serve.</li>
+    <li>Ti mostriamo il risultato prima di qualsiasi decisione.</li>
+  </ol>
+  <a class="btn btn-ghost" href="/">← Torna al sito</a>
+</div></main>
+<script>
+(function () {
+  var o = new URLSearchParams(location.search).get('offerta')
+  var materiale = { sommelier: 'menù e carta dei vini (PDF, foto o link)', margini: 'una ricetta e i costi principali del locale' }
+  if (materiale[o]) document.querySelector('#passi li:nth-child(2)').textContent = 'Ti chiediamo ' + materiale[o] + '.'
+  try { if (window.gtag) window.gtag('event', 'lead_confermato', { offerta: o || 'generico' }) } catch (e) { /* niente */ }
+})()
+</script>
 </body>
 </html>

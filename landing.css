@@ -1,0 +1,58 @@
+:root{--d1:#0F0F0F;--d2:#1A1A1A;--d3:#242424;--wine:#C43C4D;--wine2:#A6303D;--wine3:#E39AA4;--oro:#D4A85A;--tx:#C0B0A0;--tx2:#A89886;--ink:#EDE6DD;--bd:rgba(255,255,255,.1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--d1);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--wine3);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-weight:800;letter-spacing:-.015em;line-height:1.12;color:#fff}
+h1{font-size:clamp(34px,6vw,58px)}
+h2{font-size:clamp(28px,4vw,36px)}
+h3{font-size:19px;font-weight:700}
+p{color:var(--tx)}
+section{padding:72px 0}
+.alt{background:#0B0B0B;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--wine3);font-weight:700}
+.shead{text-align:center;max-width:720px;margin:0 auto 36px}
+.shead p{margin-top:12px;font-size:17px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 24px;border-radius:999px;background:var(--wine);color:#fff;font-weight:700;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{background:var(--wine2)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.28)}
+.btn-ghost:hover{background:rgba(255,255,255,.06)}
+nav{position:sticky;top:0;z-index:20;background:rgba(15,15,15,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
+.logo{font-weight:800;font-size:20px;color:#fff;text-decoration:none}
+.logo span,.cop{color:var(--wine)}
+nav .btn{min-height:44px;padding:10px 18px;font-size:14px}
+.hero{padding:64px 0 56px}
+.hero .sub{font-size:clamp(17px,2.2vw,20px);max-width:720px;margin-top:18px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.reass{display:flex;gap:10px 22px;flex-wrap:wrap;margin-top:22px;font-size:14px;color:var(--tx2)}
+.reass span::before{content:"✓ ";color:var(--wine3);font-weight:700}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--d2);border:1px solid var(--bd);border-radius:16px;padding:22px}
+.card p{margin-top:8px;font-size:15px}
+.steps .n{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(196,60,77,.16);color:var(--wine3);font-weight:800;margin-bottom:10px}
+.prezzo{max-width:520px;margin:0 auto;text-align:center;background:var(--d2);border:1px solid rgba(196,60,77,.45);border-radius:20px;padding:30px 24px}
+.prezzo .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--oro);border:1px solid rgba(212,168,90,.45);border-radius:999px;padding:4px 12px}
+.prezzo .cifra{font-size:52px;font-weight:800;color:#fff;margin-top:12px;font-variant-numeric:tabular-nums;line-height:1.1}
+.prezzo .cifra small{font-size:18px;font-weight:600;color:var(--tx2)}
+.prezzo ul{list-style:none;text-align:left;margin:20px 0;display:grid;gap:8px}
+.prezzo li{color:var(--tx);font-size:15px}
+.prezzo li::before{content:"✓ ";color:var(--wine3);font-weight:700}
+.prezzo .nota{font-size:13px;color:var(--tx2);margin-top:14px}
+.faq{max-width:760px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--bd);padding:4px 0}
+.faq summary{cursor:pointer;font-weight:700;color:#fff;font-size:16px;min-height:52px;display:flex;align-items:center;padding:10px 0}
+.faq details p{padding:0 0 16px;font-size:15px}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+form .fld{margin-bottom:14px}
+form label{display:block;font-size:14px;color:var(--tx);margin-bottom:6px}
+form input,form select,form textarea{width:100%;background:var(--d2);border:1px solid var(--bd);border-radius:12px;padding:13px 14px;color:#fff;font:inherit;font-size:16px}
+form input:focus,form select:focus,form textarea:focus{border-color:var(--wine);outline:none}
+form .privacy{font-size:13px;color:var(--tx2);margin:6px 0 14px}
+form .privacy a{color:var(--wine3)}
+form .btn{width:100%}
+footer{border-top:1px solid var(--bd);padding:36px 0;color:var(--tx2);font-size:14px;text-align:center}
+footer a{color:var(--wine3)}
+@media(max-width:860px){.g3,.formgrid{grid-template-columns:1fr}section{padding:56px 0}.hero{padding:44px 0}}
