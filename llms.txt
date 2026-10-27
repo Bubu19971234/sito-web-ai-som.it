@@ -7,13 +7,13 @@
 - Lingue: italiano, inglese, spagnolo, francese, tedesco, russo, cinese, arabo.
 - Menù digitale con allergeni confermati dal ristoratore piatto per piatto; nessuna app da installare.
 - Report per il ristoratore: vini cercati, scelti, ignorati.
-- Prezzo di lancio: 300 € l'anno + IVA per il primo anno.
+- Prezzo di lancio: 350 € l'anno + IVA per il primo anno (oppure 35 € al mese).
 - Pagina: https://www.ai-som.it/prova-sommelier.html
 
 ## AI Som Margini · food cost e prezzi
 - Calcola, dai costi fissi del locale e dal margine desiderato, il food cost massimo, il prezzo minimo (sotto il quale si perde) e il prezzo consigliato di ogni piatto, bevanda, calice o gelato.
 - Legge fatture elettroniche XML (anche .p7m), PDF e foto; bollette, affitto, personale.
-- Prezzo di lancio: 600 € l'anno + IVA per il primo anno.
+- Prezzo di lancio: 600 € l'anno + IVA per il primo anno (oppure 59 € al mese).
 - Pagina con calcolatore di prova: https://www.ai-som.it/prova-margini.html
 
 ## Contatti
