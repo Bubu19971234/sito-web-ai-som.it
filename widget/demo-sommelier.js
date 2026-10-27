@@ -1,6 +1,6 @@
 /* AI Som · demo del sommelier su carta campione (30 vini). Widget autonomo:
    <div data-aisom-demo></div> + <script src=".../demo-sommelier.js" defer></script>
-   Lingue allineate all'app: it, en, es, fr, de, ru, zh, ar. Se è presente gtag invia gli eventi
+   Lingue allineate all'app: it, en, es, fr, de, ru, zh, ar. Se sono presenti gtag o fbq inviano gli eventi
    demo_avviata / demo_consiglio / demo_lingua. */
 (function(){
 'use strict';
@@ -316,7 +316,7 @@ var ORDER=['it','en','es','fr','de','ru','zh','ar'];
 var NAMES={it:"Italiano",en:"English",es:"Español",fr:"Français",de:"Deutsch",ru:"Русский",zh:"中文",ar:"العربية"};
 var MORE={it:"Dettagli e profilo",en:"Details and profile",es:"Detalles y perfil",fr:"Détails et profil",de:"Details und Profil",ru:"Подробнее",zh:"详情与风味",ar:"التفاصيل"};
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function track(name,params){try{if(window.gtag)window.gtag('event',name,params||{})}catch(e){}}
+function track(name,params){try{if(window.gtag)window.gtag('event',name,params||{});if(window.fbq)window.fbq('trackCustom',name,params||{})}catch(e){}}
 
 function findBestWines(input){
   var q=(input||"").toLowerCase().trim();

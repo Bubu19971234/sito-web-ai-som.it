@@ -87,7 +87,7 @@
   var num = function (v) { var n = Number(String(v).replace(',', '.')); return isFinite(n) && n > 0 ? n : 0 }
   var arrotonda = function (x, passo) { return Math.round(Math.ceil(x / passo - 1e-9) * passo * 100) / 100 }
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c] }) }
-  var track = function (n, p) { try { if (window.gtag) window.gtag('event', n, p || {}) } catch (e) { /* niente */ } }
+  var track = function (n, p) { try { if (window.gtag) window.gtag('event', n, p || {}); if (window.fbq) window.fbq('trackCustom', n, p || {}) } catch (e) { /* niente */ } }
   var copia = function (o) { return JSON.parse(JSON.stringify(o)) }
 
   function calcola(s) {

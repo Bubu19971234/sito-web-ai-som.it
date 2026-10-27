@@ -94,7 +94,7 @@
 
   function avvio() {
     preparaModuli()
-    if (!scelta) banner()
+    if (!scelta && attivo) banner()
     document.querySelectorAll('[data-consenso-reset]').forEach(function (a) {
       a.addEventListener('click', function (e) { e.preventDefault(); try { localStorage.removeItem(CHIAVE) } catch (x) { /* niente */ } location.reload() })
     })
