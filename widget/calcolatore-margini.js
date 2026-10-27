@@ -128,7 +128,7 @@
       '<span class="am-tag">Prova · locali di esempio</span>' +
       '<div class="am-tabs" role="tablist" aria-label="Scegli un esempio"></div>' +
       '<div class="am-body"></div>' +
-      '<p class="am-note">Esempi inventati con costi tipici, IVA e margine modificabili. Con Margini i costi arrivano dalle tue fatture e bollette, non da stime.</p>' +
+      '<p class="am-note">Esempi inventati con costi tipici: cambia i numeri come vuoi. Con Margini i costi arrivano dalle tue fatture e bollette, non da stime.</p>' +
       '<div class="am-cta"><a class="p" href="' + esc(cta) + '">Provalo con una tua ricetta</a>' +
       '<a class="s" href="' + demoFull + '" target="_blank" rel="noopener">Apri la demo completa ↗</a></div>'
 
